@@ -42,8 +42,8 @@ interface Team {
   }
 
  interface HomePageProps {
-    fixtures: Fixture[];
-    upcomingFixtures: Fixture[];
+  fixtures: Fixture[];
+  upcomingFixtures: Fixture[];
 }
 
  interface UpcomingMatchProps {
@@ -52,6 +52,30 @@ interface Team {
 }
 
 interface FixtureDetailProps {
-    param: number;
-    fixture?: Fixture; // Adjust this based on the actual structure of the fixture details
+  param: number;
+  fixture?: Fixture; // Adjust this based on the actual structure of the fixture details
+}
+
+interface HeroProps {
+  fixtures: Fixture[];
+}
+interface TodayFixturesProps {
+  fixtures: Fixture[];
+}
+
+interface MiniFixturesProps {
+  fixtures: Fixture[];
+}
+
+interface BettingFormProps {
+  fixture: Fixture;
+  onBetPlaced: () => void;
+}
+
+interface BetFormProps {
+  fixtureId: number;
+  leagueName: string;
+  homeTeam: { name: string; logo: string };
+  awayTeam: { name: string; logo: string };
+  odds: number;
 }

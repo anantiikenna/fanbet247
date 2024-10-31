@@ -30,3 +30,36 @@ export const formatMatchTime = (dateString: string) => {
   const date = new Date(dateString);
   return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Returns time in HH:MM format
 };
+
+
+// export const formatDateMMDDWithDay = (dateString: string): string => {
+//   const date = new Date(dateString);
+//   return date.toLocaleDateString('en-US', { weekday: 'long', month: '2-digit', day: '2-digit' });
+// };
+
+// Format date as MM/DD
+export const formatDateMMDD = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' });
+};
+
+// Format date to show time in AM/PM
+export const formatTimeAMPM = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+};
+
+export const formatDateMMDDWithDay = (dateString: string): string => {
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = { 
+    month: '2-digit', 
+    day: '2-digit', 
+    weekday: 'long' 
+  };
+  
+  const formattedDate = date.toLocaleDateString('en-US', options);
+  
+  // Extract day and date parts and reorder them
+  const [weekday, mmdd] = formattedDate.split(', ');
+  return `${mmdd} ${weekday}`;
+};

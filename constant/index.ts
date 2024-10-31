@@ -15,14 +15,14 @@ export const navLinks = [
       label: "Fan Token",
     },
     {
-      imgURL: "/icons/247league.svg",
-      route: "/247league",
-      label: "247League",
+      imgURL: "/icons/fanblog.svg",
+      route: "/fanblog",
+      label: "Fanblog",
     },
     {
       imgURL: "/icons/fanblog.svg",
-      route: "/fanblog",
-      label: "FanBlog",
+      route: "/partners",
+      label: "Partners",
     },
   ];
 
@@ -66,5 +66,70 @@ export const trendlingLinks = [
     imgUrl: "/icons/soccer.svg",
     route: "/upcoming",
     label: "Germany Bundesliga I",
+  },
+]
+
+export const mtrendlingLinks = [
+  {
+    imgUrl: "/icons/uefachampions.svg",
+    route: "/uefachampionleague",
+    label: "UEFA Champions",
+  },
+  {
+    imgUrl: "/icons/uefaeuropa.svg",
+    route: "/uefaeuropa",
+    label: "UEFA Europa",
+  },
+  {
+    imgUrl: "/icons/uefaeuroconference.svg",
+    route: "/uefaconference",
+    label: "UEFA Conference",
+  },
+  {
+    imgUrl: "/icons/soccer.svg",
+    route: "/upcoming",
+    label: "Upcoming Soccer",
+  },
+  {
+    imgUrl: "/icons/soccer.svg",
+    route: "/upcoming",
+    label: "England Premier",
+  },
+  {
+    imgUrl: "/icons/soccer.svg",
+    route: "/upcoming",
+    label: "Copa Libertadores",
+  },
+  
+]
+
+export const footerLinks = [
+  {
+    
+    route: "/sport",
+    label: "Sport",
+  },
+  {
+    
+    route: "/support",
+    label: "Support",
+  },
+  {
+    
+    route: "/aboutus",
+    label: "Patners",
+  },
+  {
+    
+    route: "/partners",
+    label: "Partners",
+  },
+  {
+    route: "/faq",
+    label: "FAQ",
+  },
+  {
+    route: "termsconditons",
+    label: "Terms & Conditions",
   },
 ]
