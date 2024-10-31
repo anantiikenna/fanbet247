@@ -64,7 +64,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
                   </Link>
               
                   <Link href={`/sport/#`} className=" self-center px-5 border py-2 rounded-lg border-black">
-                    <Image src={'/icons/comment.svg'} alt="comment" width={45} height={45} />
+                    <Image src={'/icons/comment.svg'} alt="comment" width={55} height={45} />
                   </Link>
                 </div>
             </div>
@@ -76,7 +76,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
                 <Image src={'/icons/comment.svg'} alt="comment" width={25} height={25}  className=""/>
               </Link>
             </div>
-            
+        
           </li>
         ))}
       </ul>
