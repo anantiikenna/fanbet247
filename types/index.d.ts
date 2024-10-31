@@ -37,14 +37,13 @@ interface Team {
   
   interface BetPageProps {
     params: {
-      fixture_id: string;
+      fixture_id: number;
     };
   }
 
- interface HomePageProps {
-  fixtures: Fixture[];
-  upcomingFixtures: Fixture[];
-}
+  interface HomePageProps {
+    fixtures: Fixture[];
+  }
 
  interface UpcomingMatchProps {
     fixtures: Fixture[];

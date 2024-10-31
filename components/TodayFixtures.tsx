@@ -31,7 +31,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
               <div className="col-span-2 md:col-span-2 flex items-center">
                 <p>Time</p>
               </div>
-              <div className="col-span-1 col-span-2 flex items-center">
+              <div className="col-span-1 md:col-span-2 flex items-center">
                 <p>Team</p>
               </div>
               <div className="hidden md:col-span-2 "></div>
@@ -59,21 +59,21 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
                 <span className="bg-[#E5E5E5] px-3 py-1 self-center text-[#949799]"><p className='md:hidden'>A</p><p className='hidden md:flex'>Away</p></span>
               </div>
                 <div className="md:col-span-2 hidden w-full md:flex justify-start gap-2">
-                  <Link href={`/sport/${match.fixture_id}`} className="w-full">
+                  <Link href={`/sport/${match.fixture_id}`} className="w-full self-center">
                     <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
                   </Link>
               
-                  <Link href={`/sport/#`} className=" self-center px-5 border py-3 rounded-lg border-black">
-                    <Image src={'/icons/comment.svg'} alt="comment" width={15} height={15} />
+                  <Link href={`/sport/#`} className=" self-center px-5 border py-2 rounded-lg border-black">
+                    <Image src={'/icons/comment.svg'} alt="comment" width={45} height={45} />
                   </Link>
                 </div>
             </div>
             <div className="w-full flex justify-start md:hidden gap-4">
-              <Link href={`/sport/${match.fixture_id}`} className="w-full">
+              <Link href={`/sport/${match.fixture_id}`} className=" self-center w-full">
                 <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
               </Link>
-              <Link href={`/sport/#`} className=" self-center px-5 border py-3 rounded-lg border-black">
-                <Image src={'/icons/comment.svg'} alt="comment" width={15} height={15} />
+              <Link href={`/sport/#`} className=" self-center px-2 border py-2 rounded-lg border-black">
+                <Image src={'/icons/comment.svg'} alt="comment" width={25} height={25}  className=""/>
               </Link>
             </div>
             

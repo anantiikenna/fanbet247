@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { getUpcomingFixturesForUser } from "@/lib/queries/user.action.";
 import Image from "next/image";
 
-const HomePage: React.FC<HomePageProps> = async () => {
+const Home = async () => {
   const fixtures = await getUpcomingFixturesForUser();
 
   return (
@@ -73,4 +73,4 @@ const HomePage: React.FC<HomePageProps> = async () => {
   );
 };
 
-export default HomePage;
+export default Home;
