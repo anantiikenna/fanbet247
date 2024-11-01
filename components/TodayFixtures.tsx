@@ -16,7 +16,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
   return (
     <div className="flex flex-col px-2 h-[60vh] bg-white ">
       <h3 className="text-xl pl-3 py-4">Today’s Fixtures</h3>
-      <ul className="flex flex-col gap-8 overflow-auto">
+      <ul className="flex flex-col gap-8 overflow-auto scroll-m-4 ">
         {todayFixtures.map((match) => (
           <li key={match.fixture_id} className=" w-full flex flex-col gap-5 px-3">
             <div className=' w-full text-xs grid grid-flow-col grid-cols-7 md:grid-cols-10 gap-2 border-b border-[#D0D5DD] border-solid'>
