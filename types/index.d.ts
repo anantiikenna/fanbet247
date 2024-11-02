@@ -35,13 +35,11 @@ interface Team {
     away_team: Team;
   }
   
-  interface BetPageProps {
-    params: {
-      fixture_id: string;
-    };
+  interface BetPageProps extends PageProps {
+    params: Promise<{ fixture_id: number }>;
   }
 
- interface HomePageProps {
+ interface HomePage {
   fixtures: Fixture[];
   upcomingFixtures: Fixture[];
 }

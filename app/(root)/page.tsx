@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { getUpcomingFixturesForUser } from "@/lib/queries/user.action.";
 import Image from "next/image";
 
-const HomePage: React.FC<HomePageProps> = async () => {
+const Home = async () => {
   const fixtures = await getUpcomingFixturesForUser();
 
   return (
-    <div>
+    <div className="no-scrollbar">
       <Hero fixtures={fixtures}/>
       
       <div className="flex flex-col gap-5 w-full mx-auto px-4 md:px-10 xl:py-14 xl:px-28">
@@ -73,4 +73,4 @@ const HomePage: React.FC<HomePageProps> = async () => {
   );
 };
 
-export default HomePage;
+export default Home;

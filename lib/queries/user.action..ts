@@ -1,4 +1,3 @@
-import { Fixture } from '@/types';
 import { fetchSingleFixtureDetails, fetchUpcomingFixtures } from './server.action';
 
 // Function to get single fixture details by fixture ID

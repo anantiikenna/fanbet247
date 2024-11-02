@@ -27,7 +27,8 @@ const MobileNavbar = () => {
             {navLinks.map((item) => {
               const isActive = pathname === item.route || pathname.startsWith(`${item.route}`);
               return (
-                <DropdownMenuLabel key={item.label} className={isActive && 'border-b-2 border-[#28FFBB]'}>
+                <DropdownMenuLabel key={item.label} className={isActive ? 'border-b-2 border-[#28FFBB]' : ''}>
+
                   <Link 
                     href={item.route}
                     key={item.label}

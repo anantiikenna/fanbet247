@@ -5,14 +5,13 @@ import { Button } from '@/components/ui/button';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
-import { formatMatchTime } from '@/lib/utils';
 import { z } from 'zod';
 import { BetFormValidation } from '@/lib/validation';
 
-
-
 const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, awayTeam, odds }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  if (!fixtureId) throw new Error('Fixture ID is required');
+
+  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof BetFormValidation>>({
     resolver: zodResolver(BetFormValidation),
   });
 
@@ -42,7 +41,7 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
               className="input"
               {...register('stake', { required: true })}
             />
-            {errors.stake && <span className="text-red-500">{errors.stake.message}</span>}
+            {errors.stake && <span className="text-red-500">{errors.stake.message as string}</span>}
           </div>
           <div>
             <label>Bet Option:</label>
@@ -50,6 +49,7 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
               <option value="Half Time">Half Time</option>
               <option value="Full Time">Full Time</option>
             </select>
+            {errors.betOption && <span className="text-red-500">{errors.betOption.message as string}</span>}
           </div>
           <div>
             <label>Offering:</label>
@@ -57,6 +57,7 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
               <option value="Home Win">Home Win</option>
               <option value="Away Win">Away Win</option>
             </select>
+            {errors.offering && <span className="text-red-500">{errors.offering.message as string}</span>}
           </div>
           <p className="mt-2">Odds: {odds}</p>
           <Button type="submit" variant="secondary" className="w-full mt-4">Create Challenge</Button>

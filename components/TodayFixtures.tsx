@@ -31,7 +31,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
               <div className="col-span-2 md:col-span-2 flex items-center">
                 <p>Time</p>
               </div>
-              <div className="col-span-1 col-span-2 flex items-center">
+              <div className="col-span-1 md:col-span-2 flex items-center">
                 <p>Team</p>
               </div>
               <div className="hidden md:col-span-2 "></div>
