@@ -7,11 +7,11 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <div>
-      <div className='bg-white py-6 px-28'>
-        <ul className="flex gap-10 ">
+      <div className='bg-white py-6 px-3 md:px-28'>
+        <ul className="text-xs flex  gap-3 md:gap-8 ">
             {footerLinks.map((item) => (
                 <li key={item.label}>
-                    <Link href={item.route} className='font-sans leading-normal text-lg'>
+                    <Link href={item.route} className='font-sans leading-normal xl:text-lg'>
                       {item.label}
                     </Link>
                 </li>
@@ -24,7 +24,7 @@ const Footer = () => {
         <Link href="/">
           <Image src='/icons/logo.svg' alt="logo" width={108} height={24} />
         </Link>
-        <p className='text-white'>© 2024 Untitled UI. All rights reserved.</p>
+        <p className=' text-xs md:text-base text-white'>© 2024 Untitled UI. All rights reserved.</p>
       </div>
     </div>
   )

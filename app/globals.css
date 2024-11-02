@@ -92,12 +92,14 @@ body {
   }
 }
 
+
+
 @layer base {
   * {
-    @apply border-border ;
+    @apply box-border list-none p-0 m-0 scroll-smooth;
   }
+
   body {
-    @apply bg-background no-scrollbar text-foreground;
+    @apply min-h-screen ;
   }
 }
-

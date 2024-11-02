@@ -6,7 +6,7 @@ import TodayFixtures from "../TodayFixtures";
 
 const Hero: React.FC<HeroProps> = ({ fixtures }) => {
   return (
-    <section>
+    <section className="w-full">
       <div className='w-full flex gap-0 md:gap-2 lg:gap-7 md:px-5 xl:px-20'>
         <div className="hidden w-[30%] lg:flex flex-col gap-5 bg-[#2a5e37] md:px-5 md:py-5 text-white">
           <h3 className="text-lg font-bold">Trending</h3>
@@ -22,11 +22,11 @@ const Hero: React.FC<HeroProps> = ({ fixtures }) => {
           </ul>
         </div>
         <div className="flex flex-col w-full pt-[5px]]">
-          <div className="flex flex-col items-center justify-center w-full  bg-[url(/images/herobg.svg)] gap-1 md:gap-5 bg-no-repeat bg-cover bg-center px-10 py-10 md:px-24 text-center text-white">
+          <div className="flex flex-col items-center justify-center w-full  bg-[url(/images/herobg.svg)] gap-1 md:gap-5 bg-no-repeat bg-cover bg-center px-5 py-10 md:px-24 text-center text-white">
             <h4 className='text-base'>Bet & Win Today</h4>
             <h1 className="font-bold text-4xl md:text-5xl lg:text-7xl md:py-2">Peer-to-Peer</h1>
             <h1 className="font-bold text-4xl md:text-5xl lg:text-7xl md:py-2">Betting Platform</h1>
-            <div className="flex w-full px-2 py-0 bg-transparent border border-gray-300 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-white">
+            <div className="flex w-full px-2 py-0 my-2 md:my-0 md:py-0 bg-transparent border border-gray-300 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-white">
               <Button className=" bg-transparent">
                 <Image src={'/icons/search.svg'} alt="search" width={25} height={25} />
               </Button>
@@ -36,9 +36,9 @@ const Hero: React.FC<HeroProps> = ({ fixtures }) => {
                 className="w-full bg-transparent text-white placeholder-white focus:outline-none focus:border-white"
               />
             </div>
-            <div className="flex flex-col justify-center gap-2 text-center">
-              <p className="text-lg">Experience the fastest, easiest way to bet on your favourite sports and league.</p>
-              <p className="font-bold">Choose your team and challenge your friends to win big.</p>
+            <div className="flex md:flex-col justify-center md:gap-2 text-center">
+              <p className="text-sm md:text-lg">Experience the fastest, easiest way to bet on your favourite sports and league.<span className="font-bold md:hidden">Choose your team and challenge your friends to win big.</span></p>
+              <p className="hidden md:flex font-bold">Choose your team and challenge your friends to win big.</p>
             </div>
           </div>
           {/* <UpcomingMatch fixtures={fixtures}/> */}

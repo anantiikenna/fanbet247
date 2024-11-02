@@ -8,10 +8,10 @@ const Home = async () => {
   const fixtures = await getUpcomingFixturesForUser();
 
   return (
-    <div className="no-scrollbar">
+    <div className="p-0 m-0 w-full">
       <Hero fixtures={fixtures}/>
       
-      <div className="flex flex-col gap-5 w-full mx-auto px-4 md:px-10 xl:py-14 xl:px-28">
+      <div className="flex flex-col gap-5 w-full px-4 md:px-10 xl:py-14 xl:px-28">
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl md:text-7xl text-[#05503E] font-bold md:mb-4">FanBet247</h1>
           <h1 className="text-3xl md:text-7xl text-[#05503E] font-bold md:mb-4"> Amazing Features</h1>
