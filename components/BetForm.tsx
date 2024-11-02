@@ -9,7 +9,7 @@ import { BetFormValidation } from '@/lib/validation';
 import { useForm } from 'react-hook-form';
 
 interface BetFormProps {
-  fixtureId: string;
+  fixtureId: number;
   leagueName: string;
   homeTeam: { name: string; logo: string };
   awayTeam: { name: string; logo: string };
@@ -33,7 +33,7 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
         <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
       </DrawerTrigger>
       <DrawerContent className="p-6">
-        <DrawerTitle as="h2" className="text-2xl font-bold">{leagueName}</DrawerTitle>
+        <DrawerTitle className="text-2xl font-bold">{leagueName}</DrawerTitle>
         <div className="flex justify-between items-center mt-4">
           <Image src={homeTeam.logo} alt={`${homeTeam.name} logo`} width={50} height={50} />
           <span className="text-xl font-semibold">{homeTeam.name}</span>
