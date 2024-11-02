@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div>
       <div className='bg-white py-6 px-3 md:px-28'>
-        <ul className="text-[10px] flex  gap-3 md:gap-8 ">
+        <ul className="text-[11px] flex  gap-3 md:gap-8 ">
             {footerLinks.map((item) => (
                 <li key={item.label}>
                     <Link href={item.route} className='font-sans leading-normal xl:text-lg'>
