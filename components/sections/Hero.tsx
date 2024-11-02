@@ -36,9 +36,9 @@ const Hero: React.FC<HeroProps> = ({ fixtures }) => {
                 className="w-full bg-transparent text-white placeholder-white focus:outline-none focus:border-white"
               />
             </div>
-            <div className="flex md:flex-col justify-center md:gap-2 text-center">
-              <p className="text-sm md:text-lg">Experience the fastest, easiest way to bet on your favourite sports and league.<span className="font-bold md:hidden">Choose your team and challenge your friends to win big.</span></p>
-              <p className="hidden md:flex font-bold">Choose your team and challenge your friends to win big.</p>
+            <div className="flex md:flex-col items-center justify-center md:gap-2 text-center">
+              <p className="text-sm text-center md:text-lg">Experience the fastest, easiest way to bet on your favourite sports and league.<span className="font-bold md:hidden">Choose your team and challenge your friends to win big.</span></p>
+              <p className="hidden md:flex text-center font-bold">Choose your team and challenge your friends to win big.</p>
             </div>
           </div>
           {/* <UpcomingMatch fixtures={fixtures}/> */}

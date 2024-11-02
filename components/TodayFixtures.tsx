@@ -19,10 +19,10 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
       <ul className="flex flex-col gap-5 md:gap-8 overflow-auto">
         {todayFixtures.map((match) => (
           <li key={match.fixture_id} className=" w-full flex flex-col gap-5 px-1">
-            <div className=' w-full text-xs grid grid-flow-col grid-cols-7 md:grid-cols-10 gap-1 border-b border-[#D0D5DD] border-solid'>
-              <div className="col-span-3 flex items-center gap-[2px] md:gap-1 md:py-2">
+            <div className=' w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 border-b border-[#D0D5DD] border-solid'>
+              <div className="col-span-4 md:col-span-3 flex items-center gap-[1px] md:gap-1 md:py-2">
                 <p className="font-bold">{formatDateMMDDWithDay(match.date)}</p>
-                <p className='text-lg'>|</p>
+                <p className='text-base md:text-lg'>|</p>
                 <p className="font-bold">{formatMatchTime(match.date)}</p>
               </div>
               <div className="col-span-1 flex items-center">
@@ -31,13 +31,13 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
               <div className="col-span-2 md:col-span-2 flex items-center">
                 <p>Time</p>
               </div>
-              <div className="col-span-1 md:col-span-2 flex items-center">
+              <div className="col-span-2 md:col-span-2 flex items-center">
                 <p>Team</p>
               </div>
               <div className="hidden md:col-span-2 "></div>
             </div>
-            <div className='w-full text-xs grid grid-flow-col grid-cols-7 md:grid-cols-10 gap-1 '>
-              <div className=" col-span-3 flex flex-col gap-2">
+            <div className='w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 '>
+              <div className="col-span-4 md:col-span-3 flex flex-col gap-2">
                   <div className="flex gap-2">
                     <Image src={match.home_team.logo} alt={match.home_team.name} width={20} height={10}/>
                     <span className="font-bold">{match.home_team.name}</span>
@@ -54,7 +54,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
                 <span className="bg-[#E5E5E5] px-1 md:px-3 py-1 self-center text-[#949799]"><p className='md:hidden'>HT</p><p className='hidden md:flex'>Half Time</p></span>
                 <span className="bg-[#E5E5E5] px-1 md:px-3 py-1 self-center text-[#949799]"><p className='md:hidden'>FT</p><p className='hidden md:flex'>Full Time</p></span>
               </div>
-                <div className='col-span-1 md:col-span-2 flex gap-1'>
+                <div className='col-span-2 md:col-span-2 flex gap-1'>
                 <span className="bg-[#E5E5E5] px-1 md:px-3 py-1 self-center text-[#949799]"><p className='md:hidden'>H</p><p className='hidden md:flex'>Home</p></span>
                 <span className="bg-[#E5E5E5] px-1 md:px-3 py-1 self-center text-[#949799]"><p className='md:hidden'>A</p><p className='hidden md:flex'>Away</p></span>
               </div>

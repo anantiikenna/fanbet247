@@ -11,7 +11,7 @@ const Home = async () => {
     <div className="p-0 m-0 w-full">
       <Hero fixtures={fixtures}/>
       
-      <div className="flex flex-col gap-5 w-full px-4 md:px-10 xl:py-14 xl:px-28">
+      <div className="flex flex-col gap-5 w-full px-4 md:px-10 py-5 xl:py-14 xl:px-28">
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl md:text-7xl text-[#05503E] font-bold md:mb-4">FanBet247</h1>
           <h1 className="text-3xl md:text-7xl text-[#05503E] font-bold md:mb-4"> Amazing Features</h1>
@@ -20,7 +20,7 @@ const Home = async () => {
         <div className="flex flex-col gap-1">
           <h2 className="text-2xl md:text-3xl  text-[#05503E] font-semibold mb-4">Peer Challenge Matches</h2>
           <p className="text-lg text-[#05503E]">
-            The purest form of peer-to-peer betting. One player opens the bet and defines the odds and another player matches the bet. No bookmakers. No middleman!
+           The purest form of peer-to-peer betting. One player opens the bet and defines the odds and another player matches the bet. No bookmakers. No middleman!
           </p>
           <MiniFixtures fixtures={fixtures} />
         </div>
