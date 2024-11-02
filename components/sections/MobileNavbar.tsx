@@ -51,7 +51,7 @@ const MobileNavbar = () => {
         {mtrendlingLinks.map((item) =>(
           <li key={item.label} className='flex flex-col gap-1'>
             <Image src={item.imgUrl} alt={item.label} width={20} height={20} className=' self-center w-[15px] h-[15px]' />
-            <p className="text-[8px] text-white text-bold">{item.label}</p>
+            <p className="text-center text-[8px] text-white text-bold">{item.label}</p>
           </li>
           )
         )}
