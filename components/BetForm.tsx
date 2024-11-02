@@ -1,12 +1,20 @@
-// components/BetForm.tsx
 
-import { Drawer, DrawerTrigger, DrawerContent } from '@/components/ui/drawer';
+"use client"
+import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { z } from 'zod';
 import { BetFormValidation } from '@/lib/validation';
+import { useForm } from 'react-hook-form';
+
+interface BetFormProps {
+  fixtureId: string;
+  leagueName: string;
+  homeTeam: { name: string; logo: string };
+  awayTeam: { name: string; logo: string };
+  odds: number;
+}
 
 const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, awayTeam, odds }) => {
   if (!fixtureId) throw new Error('Fixture ID is required');
@@ -21,17 +29,17 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
 
   return (
     <Drawer>
-      <DrawerTrigger asChild>
-        <Button variant="default">Bet</Button>
+      <DrawerTrigger asChild className='self-center w-full'>
+        <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
       </DrawerTrigger>
       <DrawerContent className="p-6">
-        <h2 className="text-2xl font-bold">{leagueName}</h2>
+        <DrawerTitle as="h2" className="text-2xl font-bold">{leagueName}</DrawerTitle>
         <div className="flex justify-between items-center mt-4">
-          <Image src={homeTeam.logo} alt={homeTeam.name} width={50} height={50} />
+          <Image src={homeTeam.logo} alt={`${homeTeam.name} logo`} width={50} height={50} />
           <span className="text-xl font-semibold">{homeTeam.name}</span>
           <span>vs</span>
           <span className="text-xl font-semibold">{awayTeam.name}</span>
-          <Image src={awayTeam.logo} alt={awayTeam.name} width={50} height={50} />
+          <Image src={awayTeam.logo} alt={`${awayTeam.name} logo`} width={50} height={50} />
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
           <div>
@@ -39,9 +47,9 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
             <input
               type="number"
               className="input"
-              {...register('stake', { required: true })}
+              {...register('stake', { required: 'Stake amount is required' })}
             />
-            {errors.stake && <span className="text-red-500">{errors.stake.message as string}</span>}
+            {errors.stake && <span className="text-red-500">{errors.stake.message}</span>}
           </div>
           <div>
             <label>Bet Option:</label>
@@ -49,7 +57,7 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
               <option value="Half Time">Half Time</option>
               <option value="Full Time">Full Time</option>
             </select>
-            {errors.betOption && <span className="text-red-500">{errors.betOption.message as string}</span>}
+            {errors.betOption && <span className="text-red-500">{errors.betOption.message}</span>}
           </div>
           <div>
             <label>Offering:</label>
@@ -57,7 +65,7 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
               <option value="Home Win">Home Win</option>
               <option value="Away Win">Away Win</option>
             </select>
-            {errors.offering && <span className="text-red-500">{errors.offering.message as string}</span>}
+            {errors.offering && <span className="text-red-500">{errors.offering.message}</span>}
           </div>
           <p className="mt-2">Odds: {odds}</p>
           <Button type="submit" variant="secondary" className="w-full mt-4">Create Challenge</Button>
