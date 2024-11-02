@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 import { formatDateMMDDWithDay, formatMatchTime } from "@/lib/utils";
 import BetForm from "./BetForm";
 
@@ -59,21 +59,22 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
                 <span className="bg-[#E5E5E5] px-1 md:px-3 py-1 self-center text-[#949799]"><p className='md:hidden'>H</p><p className='hidden md:flex'>Home</p></span>
                 <span className="bg-[#E5E5E5] px-1 md:px-3 py-1 self-center text-[#949799]"><p className='md:hidden'>A</p><p className='hidden md:flex'>Away</p></span>
               </div>
-                <div className="md:col-span-2 hidden w-full md:flex justify-start gap-2">
-                  <Link href={`/sport/${match.fixture_id}`} className=" self-center w-full">
-                    <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
-                  </Link> 
-                  {/* <BetForm fixtureId={ match.fixture_id} leagueName={match.league.name} homeTeam={match.home_team} awayTeam={match.away_team} odds={1.8}    /> */}
-              
-                  <Link href={`/sport/#`} className=" self-center px-5 border py-3 rounded-lg border-black">
-                    <Image src={'/icons/comment.svg'} alt="comment" width={30} height={35} />
-                  </Link>
-                </div>
+              <div className="md:col-span-2 hidden w-full md:flex justify-start gap-2">
+                {/* <Link href={`/sport/${match.fixture_id}`} className=" self-center w-full">
+                  <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
+                </Link> */}
+                <BetForm fixtureId={ match.fixture_id} leagueName={match.league.name} homeTeam={match.home_team} awayTeam={match.away_team} odds={1.8}    />
+            
+                <Link href={`/sport/#`} className=" self-center px-5 border py-3 rounded-lg border-black">
+                  <Image src={'/icons/comment.svg'} alt="comment" width={30} height={35} />
+                </Link>
+              </div>
             </div>
             <div className="w-full flex justify-start md:hidden gap-4">
-              <Link href={`/sport/${match.fixture_id}`} className=" self-center w-full">
+              {/* <Link href={`/sport/${match.fixture_id}`} className=" self-center w-full">
                 <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
-              </Link>
+              </Link> */}
+              <BetForm fixtureId={ match.fixture_id} leagueName={match.league.name} homeTeam={match.home_team} awayTeam={match.away_team} odds={1.8}    />
               <Link href={`/sport/#`} className=" self-center px-5 border py-3 rounded-lg border-black">
                 <Image src={'/icons/comment.svg'} alt="comment" width={25} height={25} />
               </Link>
