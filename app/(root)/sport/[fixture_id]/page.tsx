@@ -33,7 +33,7 @@ const BetPage = async ({ params }: BetPageProps) => {
         </div>
       </div>
 
-      <Button className="text-white font-semibold bg-no-repeat mt-5 py-2 px-4 w-100 bg-center" style={{ backgroundImage: "url(/images/ButtonImage.png)" }}>
+      <Button className="text-white font-semibold bg-no-repeat mt-5 py-2 px-4 w-100 bg-center" style={{ backgroundImage: "url(/assets/images/ButtonImage.png)" }}>
         Place Your Bet
       </Button>
     </div>

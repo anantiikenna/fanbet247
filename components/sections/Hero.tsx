@@ -1,4 +1,4 @@
-import { trendlingLinks } from "@/constant";
+import { trendlingLinks } from "@/constants";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import TodayFixtures from "../TodayFixtures";
@@ -22,13 +22,13 @@ const Hero: React.FC<HeroProps> = ({ fixtures }) => {
           </ul>
         </div>
         <div className="flex flex-col w-full pt-[5px]]">
-          <div className="flex flex-col items-center justify-center w-full  bg-[url(/images/herobg.svg)] gap-1 md:gap-5 bg-no-repeat bg-cover bg-center px-5 py-10 md:px-24 text-center text-white">
+          <div className="flex flex-col items-center justify-center w-full  bg-[url(/assets/images/herobg.svg)] gap-1 md:gap-5 bg-no-repeat bg-cover bg-center px-5 py-10 md:px-24 text-center text-white">
             <h4 className='text-base'>Bet & Win Today</h4>
             <h1 className="font-bold text-4xl md:text-5xl lg:text-7xl md:py-2">Peer-to-Peer</h1>
             <h1 className="font-bold text-4xl md:text-5xl lg:text-7xl md:py-2">Betting Platform</h1>
             <div className="flex w-full px-2 py-0 my-2 md:my-0 md:py-0 bg-transparent border border-gray-300 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-white">
               <Button className=" bg-transparent">
-                <Image src={'/icons/search.svg'} alt="search" width={25} height={25} />
+                <Image src={'/assets/icons/search.svg'} alt="search" width={25} height={25} />
               </Button>
               <input
                 type="text"

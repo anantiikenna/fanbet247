@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "Fanbet247",
   description: "Bet 24hours 7 Days",
   icons: {
-    icon: "/icons/logo.svg",
+    icon: "/assets/icons/logo.svg",
   }
 };
 

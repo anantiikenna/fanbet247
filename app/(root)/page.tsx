@@ -37,22 +37,22 @@ const Home = async () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="flex flex-col gap-4 w-full">
-              <Image src="/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
+              <Image src="/assets/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
               <p className="text-[#05503E] font-bold">Lorem ipsum dolor sit amet consectetur. Urna amet sit leo urna.</p>
               <p className='text-[#626273]'>Lorem ipsum dolor sit amet consectetur. Nulla sit aliquet fermentum massa aenean lectus nibh. Arcu tortor a vitae tincidunt.</p>
             </div>
             <div className="flex flex-col gap-4 w-full">
-              <Image src="/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
+              <Image src="/assets/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
               <p className="text-[#05503E] font-bold">Lorem ipsum dolor sit amet consectetur. Urna amet sit leo urna.</p>
               <p className='text-[#626273]'>Lorem ipsum dolor sit amet consectetur. Nulla sit aliquet fermentum massa aenean lectus nibh. Arcu tortor a vitae tincidunt.</p>
             </div>
             <div className="flex flex-col gap-4 w-full">
-              <Image src="/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
+              <Image src="/assets/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
               <p className="text-[#05503E] font-bold">Lorem ipsum dolor sit amet consectetur. Urna amet sit leo urna.</p>
               <p className='text-[#626273]'>Lorem ipsum dolor sit amet consectetur. Nulla sit aliquet fermentum massa aenean lectus nibh. Arcu tortor a vitae tincidunt.</p>
             </div>
             <div className="flex flex-col gap-4 w-full">
-              <Image src="/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
+              <Image src="/assets/images/football.svg" alt='football' width={50} height={50} className="w-full"/>
               <p className="text-[#05503E] font-bold">Lorem ipsum dolor sit amet consectetur. Urna amet sit leo urna.</p>
               <p className='text-[#626273]'>Lorem ipsum dolor sit amet consectetur. Nulla sit aliquet fermentum massa aenean lectus nibh. Arcu tortor a vitae tincidunt.</p>
             </div>

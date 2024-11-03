@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { navLinks, mtrendlingLinks } from "@/constant";
+import { navLinks, mtrendlingLinks } from "@/constants";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,7 +14,7 @@ const MobileNavbar = () => {
         <DropdownMenu>
           <DropdownMenuTrigger className='border-none'>
             <Image
-              src='/icons/hamburger.svg'
+              src='/assets/icons/hamburger.svg'
               width={50}
               height={50}
               alt="menu"
@@ -43,7 +43,7 @@ const MobileNavbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
         <Link href="/">
-          <Image src='/icons/logo.svg' alt="logo" width={200} height={100} className="w-[101px] h-[23px]" />
+          <Image src='/assets/icons/logo.svg' alt="logo" width={200} height={100} className="w-[101px] h-[23px]" />
         </Link>
       
       </div>

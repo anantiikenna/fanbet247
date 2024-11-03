@@ -1,13 +1,13 @@
 
-import { navLinks } from "@/constant";
+import { navLinks } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className=' hidden md:flex justify-between w-full items-center bg-[url(/images/background2.svg)] bg-no-repeat bg-cover py-6 md:p-4 lg:px-28 '>
+    <nav className=' hidden md:flex justify-between w-full items-center bg-[url(/assets/images/background2.svg)] bg-no-repeat bg-cover py-6 md:p-4 lg:px-28 '>
       <Link href="/">
-        <Image src='/icons/logo.svg' alt="logo" width={108} height={24} />
+        <Image src='/assets/icons/logo.svg' alt="logo" width={108} height={24} />
       </Link>
       <ul className="flex gap-10">
           {navLinks.map((item) => (

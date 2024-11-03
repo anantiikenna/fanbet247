@@ -1,6 +1,6 @@
 "use client"
 
-import { footerLinks } from '@/constant';
+import { footerLinks } from '@/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -19,10 +19,10 @@ const Footer = () => {
         </ul>
       </div>
     
-      <div className='flex justify-between w-full items-center bg-[url(/images/background2.svg)] bg-no-repeat bg-cover py-6 px-4 lg:px-28 '>
+      <div className='flex justify-between w-full items-center bg-[url(/assets/images/background2.svg)] bg-no-repeat bg-cover py-6 px-4 lg:px-28 '>
         
         <Link href="/">
-          <Image src='/icons/logo.svg' alt="logo" width={108} height={24} />
+          <Image src='/assets/icons/logo.svg' alt="logo" width={108} height={24} />
         </Link>
         <p className='text-xs md:text-base text-white'>© 2024 Untitled UI. All rights reserved.</p>
       </div>

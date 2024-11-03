@@ -11,7 +11,10 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
   const todayFixtures = fixtures.filter((fixture) => new Date(fixture.date).toDateString() === today );
 
   if (todayFixtures.length === 0) {
-    return <p>No matches scheduled for today.</p>;
+    return (
+    <div className="w-full flex flex-col px-2 h-[60vh] bg-white ">
+      <h3 className="text-xl pl-3 py-4">No matches scheduled for today.</h3>
+    </div>);
   }
 
   return (
@@ -66,7 +69,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
                 <BetForm fixtureId={ match.fixture_id} leagueName={match.league.name} homeTeam={match.home_team} awayTeam={match.away_team} odds={1.8}    />
             
                 <Link href={`/sport/#`} className=" self-center px-5 border py-3 rounded-lg border-black">
-                  <Image src={'/icons/comment.svg'} alt="comment" width={30} height={35} />
+                  <Image src={'/assets/icons/comment.svg'} alt="comment" width={30} height={35} />
                 </Link>
               </div>
             </div>
@@ -76,10 +79,9 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
               </Link> */}
               <BetForm fixtureId={ match.fixture_id} leagueName={match.league.name} homeTeam={match.home_team} awayTeam={match.away_team} odds={1.8}    />
               <Link href={`/sport/#`} className=" self-center px-5 border py-3 rounded-lg border-black">
-                <Image src={'/icons/comment.svg'} alt="comment" width={25} height={25} />
+                <Image src={'/assets/icons/comment.svg'} alt="comment" width={25} height={25} />
               </Link>
             </div>
-            
           </li>
         ))}
       </ul>
