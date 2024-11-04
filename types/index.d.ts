@@ -16,16 +16,12 @@ interface Team {
 }
 
 interface Fixture {
+    league_name: string;
     fixture_id: number;
     date: string;
     league: League;
     home_team: Team;
     away_team: Team;
-}
-
-// Define FixtureData to accommodate both single and multiple fixtures
-interface FixtureData {
-    data: Fixture | Fixture[];
 }
 
 interface BetPageProps extends PageProps {

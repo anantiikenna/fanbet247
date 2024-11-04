@@ -18,7 +18,7 @@ const BetPage = async ({ params }: BetPageProps) => {
 
   return (
     <div className="flex flex-col w-full h-[530px] items-center gap-5 p-10">
-      <h2 className="text-3xl font-bold text-center">{fixture.league_name.name}</h2>
+      <h2 className="text-3xl font-bold text-center">{fixture.league_name}</h2>
       <p className="text-lg">{new Date(fixture.date).toLocaleString()}</p>
 
       <div className="flex items-center gap-10">
