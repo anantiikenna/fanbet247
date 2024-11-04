@@ -1,0 +1,7 @@
+[build]
+  publish = ".next"  # Make sure this path matches your output directory
+  command = "npm run build"  # Or "yarn build" if you use Yarn
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+

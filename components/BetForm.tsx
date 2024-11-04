@@ -89,6 +89,7 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }
           </div>
           <div className='bg-[#085D37] w-full flex'>
             <Button type="submit" className=" bg-transparent w-full text-sm font-bold">Create Challenge</Button>
+            <p>Win</p>
           </div>
           
         </form>
