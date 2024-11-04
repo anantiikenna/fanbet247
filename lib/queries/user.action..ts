@@ -2,8 +2,8 @@ import { fetchSingleFixtureDetails, fetchUpcomingFixtures } from './server.actio
 
 // Function to get single fixture details by fixture ID
 export const getSingleFixtureDetails = async (fixture_id: number): Promise<Fixture> => {
-        const fixtureDetails = await fetchSingleFixtureDetails(fixture_id);
-        return fixtureDetails; // Return the details of the single fixture
+    const fixtureDetails = await fetchSingleFixtureDetails(fixture_id);
+    return fixtureDetails; // Return the details of the single fixture
     
 };
 

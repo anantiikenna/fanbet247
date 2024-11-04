@@ -1,6 +1,6 @@
 // types/index.ts
 
- interface League {
+interface League {
     league_id: number;
     name: string;
     league_type: string;
@@ -8,14 +8,14 @@
     fav: boolean;
 }
 
- interface Team {
+interface Team {
     id: number;
     team_id: number;
     name: string;
     logo: string;
 }
 
- interface Fixture {
+interface Fixture {
     fixture_id: number;
     date: string;
     league: League;
@@ -23,54 +23,63 @@
     away_team: Team;
 }
 
-interface Team {
-  logo: string;
-  name: string;
-}
-  
-interface Fixture {
-  date: string;
-  league_name: { name: string };
-  home_team: Team;
-  away_team: Team;
+// Define FixtureData to accommodate both single and multiple fixtures
+interface FixtureData {
+    data: Fixture | Fixture[];
 }
 
 interface BetPageProps extends PageProps {
-  params: Promise<{ fixture_id: number }>;
+    params: Promise<{ fixture_id: number }>;
 }
 
 interface HomePage {
-  fixtures: Fixture[];
-  upcomingFixtures: Fixture[];
+    fixtures: Fixture[];
+    upcomingFixtures: Fixture[];
 }
 
 interface UpcomingMatchProps {
-  fixtures: Fixture[];
-  matches?: Fixture[]
+    fixtures: Fixture[];
+    matches?: Fixture[];
 }
 
 interface FixtureDetailProps {
-  param: number;
-  fixture?: Fixture; // Adjust this based on the actual structure of the fixture details
+    param: number;
+    fixture?: Fixture; // Adjust this based on the actual structure of the fixture details
 }
 
 interface HeroProps {
-  fixtures: Fixture[];
+    fixtures: Fixture[];
 }
+
 interface TodayFixturesProps {
-  fixtures: Fixture[];
+    fixtures: Fixture[];
 }
 
 interface MiniFixturesProps {
-  fixtures: Fixture[];
+    fixtures: Fixture[];
 }
-
 
 interface BetFormProps {
-  fixtureId: number;
-  leagueName: string;
-  homeTeam: { name: string; logo: string };
-  awayTeam: { name: string; logo: string };
-  odds: number;
+    fixtureId: number;
+    leagueName: string;
+    homeTeam: { name: string; logo: string };
+    awayTeam: { name: string; logo: string };
+    odds: number;
 }
 
+// Cache entry for storing fetched data
+type CacheEntry = {
+    data: Fixture; // This will now correctly accept both single Fixture and Fixture[]
+    expiry: number;    // Expiry timestamp
+};
+
+type CacheEntryArray = {
+  data: Fixture[]; // This will now correctly accept both single Fixture and Fixture[]
+  expiry: number;    // Expiry timestamp
+};
+
+// Define the cache Map type
+type CacheMap = Map<string, CacheEntry>;
+
+// Define the cache Map type
+type CacheMapArray = Map<string, CacheEntryArray>;
