@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 
 
-const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, awayTeam, odds }) => {
+const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }) => {
   if (!fixtureId) throw new Error('Fixture ID is required');
   const [stake, setStake] = useState<number>(1000);
 
@@ -32,45 +32,48 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
       <DrawerTrigger asChild className='self-center w-full'>
         <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
       </DrawerTrigger>
-      <DrawerContent className="text-white bg-[#292929] p-3">
-        <div className='grid grid-cols-6'>
-          <DrawerTitle className="col-span-5 text-2xl font-bold">{leagueName}</DrawerTitle>
+      <DrawerContent className="text-white bg-[#292929]">
+        <div className='grid grid-cols-6 px-4 mt-3'>
+          <DrawerTitle className="col-span-5 text-2xl font-bold">{homeTeam.name}</DrawerTitle>
           <div className="col-span-1">{odds}</div>
         </div>
         
-        <div className="grid grid-cols-6 mt-2">
-          <span className="col-span-2 text-xs font-semibold">{homeTeam.name}</span>
-          <span className='col-span-1 text-xs'>vs</span>
-          <span className="col-span-2 text-xs font-semibold">{awayTeam.name}</span>
+        <div className="grid grid-cols-6 px-4 mt-2">
+          <div className="col-span-3 text-xs flex gap-4 font-semibold">
+            <span className="">{homeTeam.name}</span>
+            <span className=''>vs</span>
+            <span className="">{awayTeam.name}</span>
+          </div>
+          <div className="col-span-3 text-xs font-semibold"/>
         </div>
         
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-4 flex-col">
-          <div className='grid grid-cols-6'>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-2 gap-5">
+          <div className='grid grid-cols-6 px-4'>
             <label className="col-span-4 text-xs font-semibold">Time</label>
             <input
               type="number"
               className="col-span-2 text-xs font-semibold"
               {...register('stake', { required: 'Stake amount is required' })}
-            />
+            />  
             {errors.stake && <span className="text-red-500">{errors.stake.message}</span>}
           </div>
-          <div className="flex flex-col items-start gap-4">
-            <h2 className="text-lg font-bold">Stake</h2>
-            <div className="flex gap-2">
+          <div className='grid grid-cols-6 text-xs px-4'>
+            <h2 className="self-center col-span-1 text-xs font-bold">Stake</h2>
+            <div className="col-span-3 flex gap-1">
               <button
-                className="px-4 py-2 border rounded bg-gray-200"
+                className=" self-center px-2 py-1 rounded bg-[#085D37]"
                 onClick={() => handleAmountClick(1000)}
               >
                 1000
               </button>
               <button
-                className="px-4 py-2 border rounded bg-gray-200"
+                className=" self-center px-2 py-1 rounded bg-[#085D37]"
                 onClick={() => handleAmountClick(5000)}
               >
                 5000
               </button>
               <button
-                className="px-4 py-2 border rounded bg-gray-200"
+                className=" self-center px-2 py-1 rounded bg-[#085D37]"
                 onClick={() => handleAmountClick(10000)}
               >
                 10000
@@ -80,28 +83,14 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, away
               type="number"
               value={stake}
               onChange={(e) => setStake(Number(e.target.value))} // Convert to number
-              className="border px-4 py-2 rounded w-32"
+              className="text-black col-span-2 border px-1 py-1 "
               placeholder="Enter amount"
             />
           </div>
-          <div>
-            <label>Bet Option:</label>
-            <select {...register('betOption')} className="input">
-              <option value="Half Time">Half Time</option>
-              <option value="Full Time">Full Time</option>
-            </select>
-            {errors.betOption && <span className="text-red-500">{errors.betOption.message}</span>}
+          <div className='bg-[#085D37] w-full flex'>
+            <Button type="submit" className=" bg-transparent w-full text-sm font-bold">Create Challenge</Button>
           </div>
-          <div>
-            <label>Offering:</label>
-            <select {...register('offering')} className="input">
-              <option value="Home Win">Home Win</option>
-              <option value="Away Win">Away Win</option>
-            </select>
-            {errors.offering && <span className="text-red-500">{errors.offering.message}</span>}
-          </div>
-          <p className="mt-2">Odds: {odds}</p>
-          <Button type="submit" variant="secondary" className="w-full mt-4">Create Challenge</Button>
+          
         </form>
       </DrawerContent>
     </Drawer>
