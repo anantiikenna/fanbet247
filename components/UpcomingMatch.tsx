@@ -1,9 +1,19 @@
+// UpcomingMatch.tsx
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { formatDateMMDDWithDay, formatMatchTime } from '@/lib/utils';
+import { useUpcomingFixtures } from "@/lib/queries/user.action.";
 
-const UpcomingMatch: React.FC<UpcomingMatchProps> = ({ fixtures }) => {
+
+const UpcomingMatch: React.FC = () => {
+  // Use TanStack Query's useUpcomingFixtures to fetch data
+  const { data: fixtures = [], isLoading, isError } = useUpcomingFixtures();
+
+  // Loading and error handling
+  if (isLoading) return <p>Loading upcoming matches...</p>;
+  if (isError) return <p>Error loading matches. Please try again later.</p>;
+
   // Group fixtures by the date for display
   const groupedFixtures = fixtures.reduce((groups, fixture) => {
     const date = formatDateMMDDWithDay(fixture.date);
@@ -16,7 +26,6 @@ const UpcomingMatch: React.FC<UpcomingMatchProps> = ({ fixtures }) => {
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
-
       {Object.entries(groupedFixtures).map(([date, matches]) => (
         <div key={date}>
           <h3 className="text-xl font-semibold mb-4">{date}</h3>

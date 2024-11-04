@@ -5,6 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
+
 // Infinite Scroll Function
 export function setupInfiniteScroll(
   loadMore: () => Promise<void>, // Function to load more data

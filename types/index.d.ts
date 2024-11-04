@@ -14,6 +14,20 @@
     name: string;
     logo: string;
 }
+// Example of Fixture type in types/index.ts
+interface Fixtured {
+  id: number;
+  date: string; // Adjust types as necessary
+  teams: {
+      home: string;
+      away: string;
+  };
+  odds: {
+      home: number;
+      away: number;
+  };
+  // Add other properties as necessary
+}
 
  interface Fixture {
     fixture_id: number;
@@ -36,7 +50,7 @@ interface Fixture {
 }
 
 interface BetPageProps extends PageProps {
-  params: Promise<{ fixture_id: number }>;
+  params:{ fixture_id: number };
 }
 
 interface HomePage {

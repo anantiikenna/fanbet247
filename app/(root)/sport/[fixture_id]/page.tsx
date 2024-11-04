@@ -1,19 +1,25 @@
 import { Button } from '@/components/ui/button';
-import { getSingleFixtureDetails } from '@/lib/queries/user.action.';
+import { useSingleFixtureDetails } from '@/lib/queries/user.action.';
+
 import Image from 'next/image';
 
+const BetPage = ({ params }: BetPageProps) => {
+  const { fixture_id } = params;
 
-const BetPage = async ({ params }: BetPageProps) => {
-  const { fixture_id } = await params;
+  // Use the hook at the top level of the component
+  const { data: fixture, error, isLoading } = useSingleFixtureDetails(fixture_id);
 
-  // Fetch the fixture data directly in the component
-  const fixture: Fixture | null = await getSingleFixtureDetails(fixture_id).catch((error) => {
+  if (isLoading) {
+    return <div>Loading...</div>; // Loading state
+  }
+
+  if (error) {
     console.error('Error fetching fixture data:', error);
-    return null;
-  });
+    return <div>Error loading fixture data.</div>; // Error state
+  }
 
   if (!fixture) {
-    return <div>Loading...</div>; // Loading state if fixture is null
+    return <div>No fixture data available.</div>; // No data state
   }
 
   return (
