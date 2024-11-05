@@ -28,6 +28,10 @@ interface BetPageProps extends PageProps {
     params: Promise<{ fixture_id: number }>;
 }
 
+interface CommentsProps {
+    fixtureId: number;
+}
+
 interface HomePage {
     fixtures: Fixture[];
     upcomingFixtures: Fixture[];

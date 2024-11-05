@@ -1,10 +1,9 @@
 "use client"
 
 import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
-import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
-const Comments = ({ fixtureId }) => {
+const Comments: React.FC<CommentsProps> = ({ fixtureId }) => {
   if (!fixtureId) throw new Error('Fixture ID is required');
   
   return (
