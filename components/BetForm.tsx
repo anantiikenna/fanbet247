@@ -3,7 +3,6 @@
 import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
 import { zodResolver } from '@hookform/resolvers/zod';
-// import Image from 'next/image';
 import { z } from 'zod';
 import { BetFormValidation } from '@/lib/validation';
 import { useForm } from 'react-hook-form';
@@ -11,12 +10,15 @@ import { useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
 
 
+
+
+
 const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }) => {
   if (!fixtureId) throw new Error('Fixture ID is required');
   const [stake, setStake] = useState<number>(1000);
   const [selectedFormat, setSelectedFormat] = useState<string | undefined>(undefined);
 
-
+  
   // Set stake amount when button is clicked
   const handleAmountClick = (amount: number) => {
     setStake(amount);

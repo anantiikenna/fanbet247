@@ -133,3 +133,21 @@ export const footerLinks = [
     label: "Terms & Conditions",
   },
 ]
+
+export const gameTypes  = [
+  {
+    label: "GameType1",
+  },
+  {
+    label: "GameType2",
+  },
+  {
+    label: "GameType3",
+  },
+  {
+    label: "GameType4",
+  },
+  {
+    label: "GameType5",
+  }
+]
