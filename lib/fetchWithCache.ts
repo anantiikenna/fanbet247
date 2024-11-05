@@ -1,5 +1,3 @@
-// lib/fetchWithCache.ts
-
 const cache: Map<string, CacheEntry> = new Map();
 const cacheArray: Map<string, CacheEntryArray> = new Map();
 
@@ -13,16 +11,15 @@ function calculateExpiryTime(fixtures: Fixture[], defaultCacheTime: number): num
     });
 
     if (todayFixtures.length === 0) {
-        return now + defaultCacheTime;
+        return now + defaultCacheTime; // Default to 1-minute expiry
     }
 
-    // Get the first fixture's date of today and use it as expiry
     const firstFixtureDate = new Date(todayFixtures[0].date).getTime();
     return firstFixtureDate > now ? firstFixtureDate : now + defaultCacheTime;
 }
 
 // Fetch with caching for a single Fixture
-export async function fetchFixtureWithCache(url: string, cacheTime: number = 600000): Promise<Fixture> {
+export async function fetchFixtureWithCache(url: string, cacheTime: number = 60000): Promise<Fixture> {
     const cached = cache.get(url);
 
     if (cached && Date.now() < cached.expiry) {
@@ -46,7 +43,7 @@ export async function fetchFixtureWithCache(url: string, cacheTime: number = 600
 }
 
 // Fetch with caching for an array of Fixtures
-export async function fetchFixturesWithCache(url: string, cacheTime: number = 600000): Promise<Fixture[]> {
+export async function fetchFixturesWithCache(url: string, cacheTime: number = 60000): Promise<Fixture[]> {
     const cachedArray = cacheArray.get(url);
 
     if (cachedArray && Date.now() < cachedArray.expiry) {

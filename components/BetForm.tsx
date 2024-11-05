@@ -8,24 +8,29 @@ import { z } from 'zod';
 import { BetFormValidation } from '@/lib/validation';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
 
 
 const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }) => {
   if (!fixtureId) throw new Error('Fixture ID is required');
   const [stake, setStake] = useState<number>(1000);
+  const [selectedFormat, setSelectedFormat] = useState<string | undefined>(undefined);
+
 
   // Set stake amount when button is clicked
   const handleAmountClick = (amount: number) => {
     setStake(amount);
   };
 
-  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof BetFormValidation>>({
+  const { handleSubmit } = useForm<z.infer<typeof BetFormValidation>>({
     resolver: zodResolver(BetFormValidation),
   });
 
   const onSubmit = (data: z.infer<typeof BetFormValidation>) => {
-    console.log('Bet Data:', data);
+    console.log('Bet Data:', { ...data, format: selectedFormat });
   };
+
+  const calculatePayout = (amount: number) => amount * 1.8;
 
   return (
     <Drawer>
@@ -39,23 +44,32 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }
         </div>
         
         <div className="grid grid-cols-6 px-4 mt-2">
-          <div className="col-span-3 text-xs flex gap-4 font-semibold">
+          <div className="col-span-4 text-xs flex gap-2 font-semibold">
             <span className="">{homeTeam.name}</span>
             <span className=''>vs</span>
             <span className="">{awayTeam.name}</span>
           </div>
-          <div className="col-span-3 text-xs font-semibold"/>
+          <div className="col-span-2 text-xs font-semibold"/>
         </div>
         
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-2 gap-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-4 gap-5 ">
           <div className='grid grid-cols-6 px-4'>
-            <label className="col-span-4 text-xs font-semibold">Time</label>
-            <input
-              type="number"
-              className="col-span-2 text-xs font-semibold"
-              {...register('stake', { required: 'Stake amount is required' })}
-            />  
-            {errors.stake && <span className="text-red-500">{errors.stake.message}</span>}
+            <label className="self-center col-span-3 text-xs font-semibold">Time</label>
+            <ToggleGroup
+              size="sm"
+              type="single"
+              value={selectedFormat}
+              onValueChange={(value) => setSelectedFormat(value)}
+              className='col-span-3 flex justify-end '
+            >
+              <ToggleGroupItem value="Half Time" aria-label="Toggle halftime" className="text-xs text-[#737373] bg-white rounded-sm">
+                <p>Half Time</p>
+              </ToggleGroupItem>
+              <ToggleGroupItem value="Full Time" aria-label="Toggle fulltime" className="text-xs text-[#737373] bg-white rounded-sm">
+              <p>Full Time</p>
+              </ToggleGroupItem>
+            </ToggleGroup>  
+
           </div>
           <div className='grid grid-cols-6 text-xs px-4'>
             <h2 className="self-center col-span-1 text-xs font-bold">Stake</h2>
@@ -83,13 +97,17 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }
               type="number"
               value={stake}
               onChange={(e) => setStake(Number(e.target.value))} // Convert to number
-              className="text-black col-span-2 border px-1 py-1 "
+              className="text-black col-span-2 rounded border px-1 py-1 "
               placeholder="Enter amount"
             />
           </div>
-          <div className='bg-[#085D37] w-full flex'>
-            <Button type="submit" className=" bg-transparent w-full text-sm font-bold">Create Challenge</Button>
-            <p>Win</p>
+          <div className='bg-[#085D37] w-full flex flex-col py-2'>
+            <Button type="submit" className="py-0 bg-transparent w-full text-sm font-bold">Create Challenge</Button>
+            <div className='flex justify-center gap-2 mt-[-7px] text-center'>
+              <p className='font-bold text-xs'>Win: ₦{calculatePayout(stake).toFixed(2)}</p>
+              <p className='font-bold text-xs'>Draw: ₦{calculatePayout(stake).toFixed(2)}</p>
+              <p className='font-bold text-xs'>Lose: ₦{calculatePayout(stake).toFixed(2)}</p>
+            </div>
           </div>
           
         </form>
@@ -101,84 +119,112 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }
 export default BetForm;
 
 
+{/**
+  "use client"
 
-// "use client"
-// import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
-// import { Button } from '@/components/ui/button';
-// import { zodResolver } from '@hookform/resolvers/zod';
-// import Image from 'next/image';
-// import { z } from 'zod';
-// import { BetFormValidation } from '@/lib/validation';
-// import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { BetFormValidation } from '@/lib/validation';
+import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
+import { Button } from '@/components/ui/button';
+import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
+import { z } from 'zod';
 
-// interface BetFormProps {
-//   fixtureId: number;
-//   leagueName: string;
-//   homeTeam: { name: string; logo: string };
-//   awayTeam: { name: string; logo: string };
-//   odds: number;
-// }
+const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, }) => {
+  if (!fixtureId) throw new Error('Fixture ID is required');
 
-// const BetForm: React.FC<BetFormProps> = ({ fixtureId, leagueName, homeTeam, awayTeam, odds }) => {
-//   if (!fixtureId) throw new Error('Fixture ID is required');
+  const [stake, setStake] = useState<number>(1000);
+  const [selectedFormat, setSelectedFormat] = useState<string | null>(null);
+  const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
 
-//   const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof BetFormValidation>>({
-//     resolver: zodResolver(BetFormValidation),
-//   });
+  const { handleSubmit, register, formState: { errors } } = useForm<z.infer<typeof BetFormValidation>>({
+    resolver: zodResolver(BetFormValidation),
+  });
 
-//   const onSubmit = (data: z.infer<typeof BetFormValidation>) => {
-//     console.log('Bet Data:', data);
-//   };
+  const onSubmit = (data: z.infer<typeof BetFormValidation>) => {
+    console.log('Bet Data:', { ...data, selectedTeam, format: selectedFormat, stake });
+  };
 
-//   return (
-//     <Drawer>
-//       <DrawerTrigger asChild className='self-center w-full'>
-//         <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
-//       </DrawerTrigger>
-//       <DrawerContent className="bg-[#292929] p-6">
-//         <div className='flex justify-between'>
-//           <DrawerTitle className="text-2xl font-bold">{leagueName}</DrawerTitle>
-//         </div>
-        
-//         <div className="flex justify-between items-center mt-4">
-//           <Image src={homeTeam.logo} alt={`${homeTeam.name} logo`} width={50} height={50} />
-//           <span className="text-xl font-semibold">{homeTeam.name}</span>
-//           <span>vs</span>
-//           <span className="text-xl font-semibold">{awayTeam.name}</span>
-//           <Image src={awayTeam.logo} alt={`${awayTeam.name} logo`} width={50} height={50} />
-//         </div>
-//         <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
-//           <div>
-//             <label>Enter Stake (Amount):</label>
-//             <input
-//               type="number"
-//               className="input"
-//               {...register('stake', { required: 'Stake amount is required' })}
-//             />
-//             {errors.stake && <span className="text-red-500">{errors.stake.message}</span>}
-//           </div>
-//           <div>
-//             <label>Bet Option:</label>
-//             <select {...register('betOption')} className="input">
-//               <option value="Half Time">Half Time</option>
-//               <option value="Full Time">Full Time</option>
-//             </select>
-//             {errors.betOption && <span className="text-red-500">{errors.betOption.message}</span>}
-//           </div>
-//           <div>
-//             <label>Offering:</label>
-//             <select {...register('offering')} className="input">
-//               <option value="Home Win">Home Win</option>
-//               <option value="Away Win">Away Win</option>
-//             </select>
-//             {errors.offering && <span className="text-red-500">{errors.offering.message}</span>}
-//           </div>
-//           <p className="mt-2">Odds: {odds}</p>
-//           <Button type="submit" variant="secondary" className="w-full mt-4">Create Challenge</Button>
-//         </form>
-//       </DrawerContent>
-//     </Drawer>
-//   );
-// };
+  const calculatePayout = (amount: number) => amount * 1.8;
 
-// export default BetForm;
+  return (
+    <Drawer>
+      <DrawerTrigger asChild className="self-center w-full">
+        <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
+      </DrawerTrigger>
+      <DrawerContent className="text-white bg-[#292929]">
+        <DrawerTitle className="text-2xl font-bold px-4">{homeTeam.name} vs {awayTeam.name}</DrawerTitle>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 mt-4 px-4">
+          <ToggleGroup
+            size="sm"
+            type="single"
+            value={selectedFormat}
+            onValueChange={(value) => setSelectedFormat(value)}
+            className="flex gap-2"
+          >
+            <ToggleGroupItem value="Half Time" aria-label="Half Time" className="text-xs bg-white">
+              Half Time
+            </ToggleGroupItem>
+            <ToggleGroupItem value="Full Time" aria-label="Full Time" className="text-xs bg-white">
+              Full Time
+            </ToggleGroupItem>
+          </ToggleGroup>
+          {errors.format && <span className="text-red-500">{errors.format.message}</span>}
+
+          <div className="text-xs font-semibold">Select Team</div>
+          <ToggleGroup
+            size="sm"
+            type="single"
+            value={selectedTeam}
+            onValueChange={(value) => setSelectedTeam(value)}
+            className="flex gap-2"
+          >
+            <ToggleGroupItem value={homeTeam.name} aria-label="Home Team" className="text-xs bg-white">
+              {homeTeam.name}
+            </ToggleGroupItem>
+            <ToggleGroupItem value={awayTeam.name} aria-label="Away Team" className="text-xs bg-white">
+              {awayTeam.name}
+            </ToggleGroupItem>
+          </ToggleGroup>
+          {errors.selectedTeam && <span className="text-red-500">{errors.selectedTeam.message}</span>}
+
+          <div className="text-xs font-semibold">Stake</div>
+          <div className="flex gap-2">
+            {[1000, 5000, 10000].map((amount) => (
+              <button
+                key={amount}
+                type="button"
+                onClick={() => setStake(amount)}
+                className="px-2 py-1 bg-[#085D37] rounded"
+              >
+                {amount}
+              </button>
+            ))}
+          </div>
+          <input
+            type="number"
+            value={stake}
+            onChange={(e) => setStake(Number(e.target.value))}
+            placeholder="Enter amount"
+            className="px-2 py-1 rounded border"
+          />
+          {errors.stake && <span className="text-red-500">{errors.stake.message}</span>}
+
+          <Button type="submit" className="bg-[#085D37] text-white font-bold mt-4">Create Challenge</Button>
+          
+          <div className="text-xs text-center mt-2">
+            <p>Win: ₦{calculatePayout(stake).toFixed(2)}</p>
+            <p>Draw: ₦{calculatePayout(stake).toFixed(2)}</p>
+            <p>Lose: ₦{calculatePayout(stake).toFixed(2)}</p>
+          </div>
+        </form>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+
+export default BetForm;
+
+*/}

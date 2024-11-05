@@ -18,12 +18,12 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
   }
 
   return (
-    <div className="w-full flex flex-col px-2 h-[60vh] bg-white ">
+    <div className="w-full flex flex-col h-[60vh] bg-white ">
       <h3 className="text-xl pl-3 py-4">Today’s Fixtures</h3>
       <ul className="flex flex-col gap-5 md:gap-8 overflow-auto">
         {todayFixtures.map((match) => (
-          <li key={match.fixture_id} className=" w-full flex flex-col gap-5 px-1">
-            <div className=' w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 border-b border-[#D0D5DD] border-solid'>
+          <li key={match.fixture_id} className=" w-full flex flex-col gap-5 ">
+            <div className=' w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 border-b border-[#D0D5DD] border-solid bg-[#17392B] text-white px-2'>
               <div className="col-span-4 md:col-span-3 flex items-center gap-[1px] md:gap-1 md:py-2">
                 <p className="font-bold">{formatDateMMDDWithDay(match.date)}</p>
                 <p className='text-base md:text-lg'>|</p>
@@ -40,7 +40,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
               </div>
               <div className="hidden md:col-span-2 "></div>
             </div>
-            <div className='w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 '>
+            <div className='w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 px-2 '>
               <div className="col-span-4 md:col-span-3 flex flex-col gap-2">
                   <div className="flex gap-2">
                     <Image src={match.home_team.logo} alt={match.home_team.name} width={20} height={10}/>
@@ -73,7 +73,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
                 </Link>
               </div>
             </div>
-            <div className="w-full flex justify-start md:hidden gap-4">
+            <div className="w-full flex justify-start md:hidden gap-4 px-2">
               {/* <Link href={`/sport/${match.fixture_id}`} className=" self-center w-full">
                 <Button variant="default" className="bg-[#085D37] text-white font-bold px-10 w-full">Bet</Button>
               </Link> */}
