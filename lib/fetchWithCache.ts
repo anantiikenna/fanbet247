@@ -12,7 +12,7 @@ export async function fetchFixtureWithCache(url: string): Promise<Fixture> {
         }
 
         const data: Fixture = await response.json();
-        cache.set(url, { data, expiry: Date.now() + 2000 }); // Set expiry for 2 seconds
+        cache.set(url, { data, expiry: Date.now() + 60000 }); // Set expiry for 2 seconds
         return data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -31,7 +31,7 @@ export async function fetchFixturesWithCache(url: string): Promise<Fixture[]> {
         }
 
         const data: Fixture[] = await response.json();
-        cacheArray.set(url, { data, expiry: Date.now() + 2000 }); // Set expiry for 2 seconds
+        cacheArray.set(url, { data, expiry: Date.now() + 60000 }); // Set expiry for 2 seconds
         return data;
     } catch (error) {
         console.error("Error fetching data:", error);
