@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { getSingleFixtureDetails } from '@/lib/queries/user.action.';
+import { getSingleFixtureDetails } from '@/lib/queries/user.action';
 import Image from 'next/image';
 
 

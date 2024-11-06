@@ -12,7 +12,6 @@ import { useState } from "react";
 import { gameTypes } from "@/constants";
 import Comments from "./Comments";
 
-
 const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -41,7 +40,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
   return (
     <div className="w-full flex flex-col h-[70vh] bg-white ">
       <h3 className="text-xl pl-3 py-4">Today’s Fixtures</h3>
-      <div className="relative bg-[#1D2E28] flex justify-between items-center py-5 overflow-hidden overflow-x-scroll md:overflow-hidden">
+      <div className="relative bg-[#1D2E28] flex justify-between items-center py-5 px-3 overflow-hidden overflow-x-scroll md:overflow-hidden">
         {gameTypes.map((game) => (
           <div
             key={game.label}
@@ -56,7 +55,7 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
       
         {todayFixtures.map((match) => (
           <li key={match.fixture_id} className=" w-full flex flex-col gap-5 mb-5 md:mb-8 ">
-            <div className=' w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 border-b border-[#D0D5DD] border-solid bg-[#17392B] text-white px-2'>
+            <div className=' w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-9 gap-1 border-b border-[#D0D5DD] border-solid bg-[#17392B] text-white px-2'>
               <div className="col-span-4 md:col-span-3 flex items-center gap-[1px] md:gap-1 md:py-2">
                 <p className="font-bold">{formatDateMMDDWithDay(match.date)}</p>
                 <p className='text-base md:text-lg'>|</p>
@@ -65,15 +64,18 @@ const TodayFixtures: React.FC<TodayFixturesProps> = ({ fixtures }) => {
               <div className="col-span-1 flex items-center">
                 <p className="">Odds</p>
               </div>
-              <div className="col-span-2 md:col-span-2 flex items-center">
-                <p>Time</p>
-              </div>
-              <div className="col-span-2 md:col-span-2 flex items-center">
+              <div className="hidden col-span-2 md:col-span-2 md:flex items-center">
                 <p>Team</p>
               </div>
-              <div className="hidden md:col-span-2 "></div>
+              <div className="flex col-span-2 md:col-span-1 md:hidden items-center">
+                <p>1</p>
+              </div>
+              <div className="flex col-span-2 md:col-span-1 md:hidden items-center">
+                <p>2</p>
+              </div>
+              <div className="hidden md:col-span-2 "/>
             </div>
-            <div className='w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-10 gap-1 px-2 '>
+            <div className='w-full text-xs grid grid-flow-col grid-cols-9 md:grid-cols-9 gap-1 px-2 '>
               <div className="col-span-4 md:col-span-3 flex flex-col gap-2">
                   <div className="flex gap-2">
                     <Image src={match.home_team.logo} alt={match.home_team.name} width={20} height={10}/>

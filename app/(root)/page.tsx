@@ -1,7 +1,8 @@
 import MiniFixtures from "@/components/MiniFixtures";
 import Hero from "@/components/sections/Hero";
 import { Button } from "@/components/ui/button";
-import { getUpcomingFixturesForUser } from "@/lib/queries/user.action.";
+import { getUpcomingFixturesForUser } from "@/lib/queries/user.action";
+
 import Image from "next/image";
 
 const Home = async () => {
