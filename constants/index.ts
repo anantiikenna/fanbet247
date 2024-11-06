@@ -1,3 +1,11 @@
+export const authLinks = {
+  login: '/login',
+  signup: '/signup',
+  forgotPassword: '/forgot-password',
+  resetPassword: '/reset-password',
+};
+
+
 export const navLinks = [
     {
       imgURL: "/assets/icons/home.svg",

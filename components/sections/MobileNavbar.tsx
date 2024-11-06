@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { navLinks, mtrendlingLinks } from "@/constants";
+import { navLinks, mtrendlingLinks, authLinks } from "@/constants";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,10 +9,10 @@ import { usePathname } from "next/navigation";
 const MobileNavbar = () => {
   const pathname = usePathname();
   return (
-    <section className="w-full flex flex-col py-5 gap-4 md:hidden bg-[#153E34]">
-      <div className="flex md:hidden justify-start gap-2 w-full px-5 bg-[#153E34]">
-        <DropdownMenu>
-          <DropdownMenuTrigger className='border-none'>
+    <section className="w-full flex flex-col py-5 gap-4 lg:hidden bg-[#153E34]">
+      <div className="flex justify-start gap-2 w-full px-5 bg-[#153E34]">
+        <DropdownMenu >
+          <DropdownMenuTrigger className='lg:hidden border-none'>
             <Image
               src='/assets/icons/hamburger.svg'
               width={50}
@@ -22,12 +22,27 @@ const MobileNavbar = () => {
             />
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="md:hidden flex flex-col w-[800px] text-white px-10 py-5 font-sans bg-[#153E34] border-none gap-5"
+            className="lg:hidden flex flex-col w-[800px] text-white px-10 py-5 font-sans bg-[#153E34] border-none gap-5"
           >
+            <div className="flex border-b gap-5 border-[#667085]">
+              <Link 
+                href={authLinks.login} 
+                className={`font-bold font-noto-sans-display leading-normal text-lg ${authLinks.login === pathname && ' text-[#28FFBB] border-b-2 border-[#28FFBB]'}`}
+              >
+                Login
+              </Link>
+              <Link 
+                href={authLinks.signup} 
+                className={`font-bold font-noto-sans-display leading-normal text-lg ${authLinks.signup === pathname && ' text-[#28FFBB] border-b-2 border-[#28FFBB]'}`}
+              >
+                Signup
+              </Link>
+            </div>
+            
             {navLinks.map((item) => {
-              const isActive = pathname === item.route || pathname.startsWith(`${item.route}`);
+              const isActive = pathname === item.route; //|| pathname.startsWith(`${item.route}`)
               return (
-                <DropdownMenuLabel key={item.label} className={isActive ? 'border-b-2 border-[#28FFBB]' : ''}>
+                <DropdownMenuLabel key={item.label} className={isActive ? 'border-b-2 border-[#28FFBB]' :''}>
 
                   <Link 
                     href={item.route}
