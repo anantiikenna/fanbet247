@@ -1,30 +1,9 @@
 const cache: Map<string, CacheEntry> = new Map();
 const cacheArray: Map<string, CacheEntryArray> = new Map();
 
-function calculateExpiryTime(fixtures: Fixture[], defaultCacheTime: number): number {
-    const now = Date.now();
-    const todayDate = new Date().setHours(0, 0, 0, 0);
-
-    const todayFixtures = fixtures.filter(fixture => {
-        const fixtureDate = new Date(fixture.date).setHours(0, 0, 0, 0);
-        return fixtureDate === todayDate;
-    });
-
-    if (todayFixtures.length === 0) {
-        return now + defaultCacheTime; // Default to 1-minute expiry
-    }
-
-    const firstFixtureDate = new Date(todayFixtures[0].date).getTime();
-    return firstFixtureDate > now ? firstFixtureDate : now + defaultCacheTime;
-}
-
 // Fetch with caching for a single Fixture
-export async function fetchFixtureWithCache(url: string, cacheTime: number = 60000): Promise<Fixture> {
-    const cached = cache.get(url);
-
-    if (cached && Date.now() < cached.expiry) {
-        return cached.data as Fixture;
-    }
+export async function fetchFixtureWithCache(url: string): Promise<Fixture> {
+    console.log("Fetching new fixture data");
 
     try {
         const response = await fetch(url);
@@ -33,8 +12,7 @@ export async function fetchFixtureWithCache(url: string, cacheTime: number = 600
         }
 
         const data: Fixture = await response.json();
-        const expiryTime = calculateExpiryTime([data], cacheTime);
-        cache.set(url, { data, expiry: expiryTime });
+        cache.set(url, { data, expiry: Date.now() + 2000 }); // Set expiry for 2 seconds
         return data;
     } catch (error) {
         console.error("Error fetching data:", error);
@@ -43,12 +21,8 @@ export async function fetchFixtureWithCache(url: string, cacheTime: number = 600
 }
 
 // Fetch with caching for an array of Fixtures
-export async function fetchFixturesWithCache(url: string, cacheTime: number = 60000): Promise<Fixture[]> {
-    const cachedArray = cacheArray.get(url);
-
-    if (cachedArray && Date.now() < cachedArray.expiry) {
-        return cachedArray.data as Fixture[];
-    }
+export async function fetchFixturesWithCache(url: string): Promise<Fixture[]> {
+    console.log("Fetching new fixtures array data");
 
     try {
         const response = await fetch(url);
@@ -57,8 +31,7 @@ export async function fetchFixturesWithCache(url: string, cacheTime: number = 60
         }
 
         const data: Fixture[] = await response.json();
-        const expiryTime = calculateExpiryTime(data, cacheTime);
-        cacheArray.set(url, { data, expiry: expiryTime });
+        cacheArray.set(url, { data, expiry: Date.now() + 2000 }); // Set expiry for 2 seconds
         return data;
     } catch (error) {
         console.error("Error fetching data:", error);
