@@ -1,6 +1,5 @@
 import SignupFormClient from "@/components/SignupFormClient";
 
-
 const Signup = () => {
   return (
     <div>
