@@ -4,7 +4,7 @@ import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from '@/components/
 import { Button } from '@/components/ui/button';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { BetFormValidation } from '@/lib/validation';
+import { BetFormSchema } from '@/lib/validation';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
@@ -24,11 +24,11 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }
     setStake(amount);
   };
 
-  const { handleSubmit } = useForm<z.infer<typeof BetFormValidation>>({
-    resolver: zodResolver(BetFormValidation),
+  const { handleSubmit } = useForm<z.infer<typeof BetFormSchema>>({
+    resolver: zodResolver(BetFormSchema),
   });
 
-  const onSubmit = (data: z.infer<typeof BetFormValidation>) => {
+  const onSubmit = (data: z.infer<typeof BetFormSchema>) => {
     console.log('Bet Data:', { ...data, format: selectedFormat });
   };
 
@@ -127,7 +127,7 @@ export default BetForm;
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { BetFormValidation } from '@/lib/validation';
+import { BetFormSchema } from '@/lib/validation';
 import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
@@ -141,10 +141,10 @@ const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, }) => 
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
 
   const { handleSubmit, register, formState: { errors } } = useForm<z.infer<typeof BetFormValidation>>({
-    resolver: zodResolver(BetFormValidation),
+    resolver: zodResolver(BetFormSchema),
   });
 
-  const onSubmit = (data: z.infer<typeof BetFormValidation>) => {
+  const onSubmit = (data: z.infer<typeof BetFormSchema>) => {
     console.log('Bet Data:', { ...data, selectedTeam, format: selectedFormat, stake });
   };
 

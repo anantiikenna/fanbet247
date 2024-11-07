@@ -83,3 +83,7 @@ type CacheMap = Map<string, CacheEntry>;
 
 // Define the cache Map type
 type CacheMapArray = Map<string, CacheEntryArray>;
+
+type LoginFormValues = z.infer<typeof loginSchema>;
+
+type SignupFormValues = z.infer<typeof signupSchema>;

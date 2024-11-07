@@ -1,10 +1,12 @@
+import LoginFormClient from "@/components/LoginFormClient"
 
-const LogIn = () => {
+const Login = () => {
   return (
-    <section className='flex-center size-full max-sm:px-6'>
-      Login
-    </section>
-  )
-}
+    <div>
+      <h1>Login Page</h1>
+      <LoginFormClient />
+    </div>
+  );
+};
 
-export default LogIn
+export default Login;

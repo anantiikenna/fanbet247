@@ -1,12 +1,13 @@
+import SignupFormClient from "@/components/SignupFormClient";
 
 
-const SignUp = async () => {
-  
+const Signup = () => {
   return (
-    <section className='flex-center size-full max-sm:px-6'>
-     
-    </section>
-  )
-}
+    <div>
+      <h1>Signup Page</h1>
+      <SignupFormClient />
+    </div>
+  );
+};
 
-export default SignUp;
+export default Signup;
