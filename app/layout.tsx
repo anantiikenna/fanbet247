@@ -36,10 +36,7 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} ${notoSansDisplay.variable} bg-[#f3f7f6] p-0 m-0 antialiased h-screen`}
       >
-        <Nav/>
-        <MobileNavbar/>
-          {children}
-          <Footer/>
+        {children}
       </body>
     </html>
   );
