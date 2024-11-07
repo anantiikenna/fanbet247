@@ -59,6 +59,7 @@ const SignupFormClient = () => {
           {...register("username")}
           placeholder="Username"
           onChange={handleUsernameChange}
+          type="text"
         />
         {isUsernameAvailable === false && (
           <p className="text-red-500">Username is already taken.</p>
@@ -66,7 +67,7 @@ const SignupFormClient = () => {
         {errors.username && <p className="text-red-500">{errors.username.message}</p>}
       </div>
       <div>
-        <Input {...register("email")} placeholder="Email" />
+        <Input {...register("email")} placeholder="Email" type="email"/>
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
       <div>
