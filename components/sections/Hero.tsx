@@ -7,7 +7,7 @@ import TodayFixtures from "../TodayFixtures";
 const Hero: React.FC<HeroProps> = ({ fixtures }) => {
   return (
     <section className="w-full">
-      <div className='w-full flex gap-0 md:gap-2 lg:gap-7 md:px-5 xl:px-20'>
+      <div className='w-full flex gap-0 md:gap-2 lg:gap-7 lg:px-5 xl:px-20'>
         <div className="hidden w-[30%] lg:flex flex-col gap-5 bg-[#2a5e37] md:px-5 md:py-5 text-white">
           <h3 className="text-lg font-bold">Trending</h3>
           <ul className="hidden w-full md:flex flex-col items-baseline gap-5">

@@ -36,6 +36,23 @@ body {
   background: #7878a3;
 }
 
+/* Remove focus outline */
+.dropdown-trigger:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove active/click effect */
+.dropdown-trigger:active {
+  transform: none;
+}
+
+@layer utilities {
+  .dropdowntrigger{
+    @apply dropdown-trigger;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
