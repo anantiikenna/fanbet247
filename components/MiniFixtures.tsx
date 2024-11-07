@@ -21,7 +21,7 @@ const MiniFixtures: React.FC<MiniFixturesProps> = ({fixtures}) => {
                 </div>
             </div>
             <div className="self-center">
-                <Button className="bg-[#DAC100] text-black font-bold italic bg-center px-5 py-2 w-100">Bet Now</Button>
+                <Button className="bg-[#085D37] text-white font-bold italic bg-center px-5 py-2 w-100">Bet Now</Button>
             </div>
         </div>
       ))}
