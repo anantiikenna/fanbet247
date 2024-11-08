@@ -12,7 +12,7 @@ const Nav = () => {
       <Link href="/">
         <Image src='/assets/icons/logo.svg' alt="logo" width={108} height={24} />
       </Link>
-      <ul className="flex justify-between">
+      <ul className="flex justify-between items-center gap-5">
         {navLinks.map((item) => (
           <li key={item.label} className={item.route === pathname ? 'rounded-xl border-2 px-2 py-1 border-[#085D37]':' border-2 border-transparent px-2 py-1 '}>
             <Link href={item.route} className='font-sans leading-normal text-base text-white'>
