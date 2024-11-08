@@ -12,6 +12,10 @@ export default function RootLayout({
         <Image src='/assets/icons/logos.svg' alt="logo" width={200} height={100} />
       </Link>
       {children}
+      <div className="w-full flex justify-center gap-10 text-white">
+        <Link href={'/termandconditions'}><p>Terms and Conditions</p></Link>
+        <Link href={'/privacy'}><p>Privacy</p></Link>
+      </div>
     </main>
   );
 }

@@ -87,3 +87,5 @@ type CacheMapArray = Map<string, CacheEntryArray>;
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 type SignupFormValues = z.infer<typeof signupSchema>;
+
+type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;

@@ -7,8 +7,6 @@ import { signupSchema } from "@/lib/validation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-
-
 const SignupFormClient = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<SignupFormValues>({
     resolver: zodResolver(signupSchema),
@@ -53,32 +51,37 @@ const SignupFormClient = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5 px-[25%]">
+      <div className="w-[320px]">
+        <p className="text-white text-sm">Username</p>
         <Input
           {...register("username")}
-          placeholder="Username"
+          placeholder="Enter your username"
           onChange={handleUsernameChange}
           type="text"
+          className="w-full"
         />
         {isUsernameAvailable === false && (
           <p className="text-red-500">Username is already taken.</p>
         )}
         {errors.username && <p className="text-red-500">{errors.username.message}</p>}
       </div>
-      <div>
-        <Input {...register("email")} placeholder="Email" type="email"/>
+      <div className="w-[320px]">
+        <p className="text-white text-sm">Email</p>
+        <Input {...register("email")} placeholder="email@address.com" type="email"/>
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div>
-        <Input {...register("password")} type="password" placeholder="Password" />
+      <div className="w-[320px]">
+      <p className="text-white text-sm">Password</p>
+        <Input {...register("password")} type="password" placeholder="Create your password" />
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
       </div>
-      <div>
-        <Input {...register("confirmPassword")} type="password" placeholder="Confirm Password" />
+      <div className="w-[320px]">
+      <p className="text-white text-sm">Confirm Passsword</p>
+        <Input {...register("confirmPassword")} type="password" placeholder="Confirm your password" />
         {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
       </div>
-      <Button type="submit">Signup</Button>
+      <Button type="submit" className="w-[320px] bg-[#085D37]">Signup</Button>
     </form>
   );
 };

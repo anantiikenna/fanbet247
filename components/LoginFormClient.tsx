@@ -30,24 +30,26 @@ const LoginFormClient = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
+    <form onSubmit={handleSubmit(onSubmit)} className=" mt-14 w-full flex flex-col items-center gap-5 px-[25%]">
+      <div className="w-[320px]">
+        <p className="text-white text-sm">Email</p>
         <Input
           {...register("email")}
-          placeholder="Email"
+          placeholder="email@address.com"
           type="email"
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div>
+      <div className="w-[320px]">
+        <p className="text-white text-sm">Password</p>
         <Input
           {...register("password")}
-          placeholder="Password"
+          placeholder="Enter your password"
           type="password"
         />
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
       </div>
-      <Button type="submit">Login</Button>
+      <Button type="submit" className="w-[320px] bg-[#085D37]">Login</Button>
     </form>
   );
 };
