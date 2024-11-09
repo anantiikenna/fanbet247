@@ -51,7 +51,7 @@ const SignupFormClient = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5 px-[25%]">
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full flex flex-col items-center gap-5 px-[25%]">
       <div className="w-[320px]">
         <p className="text-white text-sm">Username</p>
         <Input
