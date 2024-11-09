@@ -11,7 +11,7 @@ function cleanCache(map: Map<string, { expiry: number }>) {
   }
 }
 
-// Run cleanup every 60 seconds (adjust timing as needed)
+// Run cleanup every 60 seconds
 setInterval(() => {
   cleanCache(cache);
   cleanCache(cacheArray);
@@ -19,10 +19,15 @@ setInterval(() => {
 
 // Fetch with caching for a single Fixture
 export async function fetchFixtureWithCache(url: string, cacheTime: number = 300000): Promise<Fixture> {
+  const now = Date.now();
   const cached = cache.get(url);
-  if (cached && Date.now() < cached.expiry) {
+  
+  if (cached && now < cached.expiry) {
     console.log("Serving fixture data from cache");
     return cached.data;
+  } else if (cached && now >= cached.expiry) {
+    // Remove expired data immediately
+    cache.delete(url);
   }
 
   console.log("Fetching new fixture data");
@@ -33,7 +38,7 @@ export async function fetchFixtureWithCache(url: string, cacheTime: number = 300
     }
 
     const data: Fixture = await response.json();
-    cache.set(url, { data, expiry: Date.now() + cacheTime });
+    cache.set(url, { data, expiry: now + cacheTime });
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -43,10 +48,15 @@ export async function fetchFixtureWithCache(url: string, cacheTime: number = 300
 
 // Fetch with caching for an array of Fixtures
 export async function fetchFixturesWithCache(url: string, cacheTime: number = 300000): Promise<Fixture[]> {
+  const now = Date.now();
   const cachedArray = cacheArray.get(url);
-  if (cachedArray && Date.now() < cachedArray.expiry) {
+  
+  if (cachedArray && now < cachedArray.expiry) {
     console.log("Serving fixtures array data from cache");
     return cachedArray.data;
+  } else if (cachedArray && now >= cachedArray.expiry) {
+    // Remove expired data immediately
+    cacheArray.delete(url);
   }
 
   console.log("Fetching new fixtures array data");
@@ -57,7 +67,7 @@ export async function fetchFixturesWithCache(url: string, cacheTime: number = 30
     }
 
     const data: Fixture[] = await response.json();
-    cacheArray.set(url, { data, expiry: Date.now() + cacheTime });
+    cacheArray.set(url, { data, expiry: now + cacheTime });
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

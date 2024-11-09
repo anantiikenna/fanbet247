@@ -9,7 +9,7 @@ const Nav = () => {
   const pathname = usePathname();
   return (
     <nav className=' hidden md:flex justify-between w-full items-center bg-[url(/assets/images/background2.svg)] bg-no-repeat bg-cover py-6 md:p-4 lg:px-28 '>
-      <Link href="/">
+      <Link href="/" className='flex items-center'>
         <Image src='/assets/icons/logo.svg' alt="logo" width={108} height={24} />
       </Link>
       <ul className="flex justify-between items-center gap-5">
