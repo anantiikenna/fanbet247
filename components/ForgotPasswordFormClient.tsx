@@ -40,7 +40,7 @@ const ForgotPasswordFormClient = () => {
   if (isSubmitted) {
     // Display message or SVG upon successful form submission
     return (
-      <div className="flex flex-col items-center mt-14">
+      <div className="flex flex-col items-center mt-14 gap-5">
         <p className="mt-4 text-center text-white">
           Please check your email, we send a link to reset your password
         </p>
@@ -50,13 +50,13 @@ const ForgotPasswordFormClient = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5 px-[25%]">
-      <div className="w-[320px]">
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5 ">
+      <div className="w-full md:w-[320px]">
         <p className="text-white">Email</p>
         <Input {...register("email")} placeholder="Enter your email" />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <Button type="submit" className="w-[320px] bg-[#085D37]">Continue</Button>
+      <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Continue</Button>
     </form>
   );
 };

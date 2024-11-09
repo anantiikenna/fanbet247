@@ -30,8 +30,8 @@ const LoginFormClient = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className=" mt-14 w-full flex flex-col items-center gap-5 px-[25%]">
-      <div className="w-[320px]">
+    <form onSubmit={handleSubmit(onSubmit)} className=" mt-14 w-full flex flex-col items-center gap-5">
+      <div className="w-full md:w-[320px]">
         <p className="text-white text-sm">Email</p>
         <Input
           {...register("email")}
@@ -40,7 +40,7 @@ const LoginFormClient = () => {
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div className="w-[320px]">
+      <div className="w-full md:w-[320px]">
         <p className="text-white text-sm">Password</p>
         <Input
           {...register("password")}
@@ -49,7 +49,7 @@ const LoginFormClient = () => {
         />
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
       </div>
-      <Button type="submit" className="w-[320px] bg-[#085D37]">Login</Button>
+      <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Login</Button>
     </form>
   );
 };

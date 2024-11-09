@@ -8,27 +8,26 @@ export const authLinks = {
 
 export const navLinks = [
     {
-      imgURL: "/assets/icons/home.svg",
       route: "/",
       label: "Home",
     },
     {
-      imgURL: "/assets/icons/sports.svg",
       route: "/sports",
       label: "Sports",
     },
     {
-      imgURL: "/assets/icons/fantoken.svg",
       route: "/fantoken",
       label: "Fan Token",
     },
     {
-      imgURL: "/assets/icons/fanblog.svg",
+      route: "/247league",
+      label: "247 League",
+    },
+    {
       route: "/fanblog",
       label: "Fanblog",
     },
     {
-      imgURL: "/assets/icons/fanblog.svg",
       route: "/partners",
       label: "Partners",
     },

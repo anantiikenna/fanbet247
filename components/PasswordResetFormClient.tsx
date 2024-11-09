@@ -40,7 +40,7 @@ const PasswordResetFormClient = () => {
 
   if (isSubmitted) {
     return (
-      <div className="flex flex-col items-center mt-14">
+      <div className="flex flex-col items-center mt-14 gap-5">
         
         <p className="text-center text-white">
           Your password has been successfully reset. Please check your email for confirmation.
@@ -52,13 +52,13 @@ const PasswordResetFormClient = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5 px-[25%]">
-      <div className="w-[320px]">
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5">
+      <div className="w-full md:w-[320px]">
         <p className="text-white">Email</p>
         <Input {...register("email")} placeholder="Enter your email" />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div className="w-[320px] mt-4">
+      <div className="w-full md:w-[320px]">
         <p className="text-white">New Password</p>
         <Input
           {...register("password")}
@@ -67,7 +67,7 @@ const PasswordResetFormClient = () => {
         />
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
       </div>
-      <div className="w-[320px] mt-4">
+      <div className="w-full md:w-[320px]">
         <p className="text-white">Confirm New Password</p>
         <Input
           {...register("confirmPassword")}
@@ -76,7 +76,7 @@ const PasswordResetFormClient = () => {
         />
         {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
       </div>
-      <Button type="submit" className="w-[320px] bg-[#085D37] mt-4">Reset Password</Button>
+      <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Reset Password</Button>
     </form>
   );
 };

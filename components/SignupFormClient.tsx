@@ -51,8 +51,8 @@ const SignupFormClient = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full flex flex-col items-center gap-5 px-[25%]">
-      <div className="w-[320px]">
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full flex flex-col items-center gap-5">
+      <div className="w-full md:w-[320px]">
         <p className="text-white text-sm">Username</p>
         <Input
           {...register("username")}
@@ -66,22 +66,22 @@ const SignupFormClient = () => {
         )}
         {errors.username && <p className="text-red-500">{errors.username.message}</p>}
       </div>
-      <div className="w-[320px]">
+      <div className="w-full md:w-[320px]">
         <p className="text-white text-sm">Email</p>
         <Input {...register("email")} placeholder="email@address.com" type="email"/>
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div className="w-[320px]">
+      <div className="w-full md:w-[320px]">
       <p className="text-white text-sm">Password</p>
         <Input {...register("password")} type="password" placeholder="Create your password" />
         {errors.password && <p className="text-red-500">{errors.password.message}</p>}
       </div>
-      <div className="w-[320px]">
+      <div className="w-full md:w-[320px]">
       <p className="text-white text-sm">Confirm Passsword</p>
         <Input {...register("confirmPassword")} type="password" placeholder="Confirm your password" />
         {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
       </div>
-      <Button type="submit" className="w-[320px] bg-[#085D37]">Signup</Button>
+      <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Signup</Button>
     </form>
   );
 };
