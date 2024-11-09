@@ -89,3 +89,5 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 type SignupFormValues = z.infer<typeof signupSchema>;
 
 type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
+
+type PasswordResetFormValues = z.infer<typeof passwordResetSchema>;
