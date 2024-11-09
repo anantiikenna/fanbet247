@@ -1,9 +1,10 @@
 import { API_URLS } from "../api/apiUrls";
 import { fetchFixturesWithCache, fetchFixtureWithCache } from "../fetchWithCache";
 
+const url = API_URLS.FETCH_UPCOMING_FIXTURES ?? "default-fallback-url";
 // Fetch upcoming fixtures with caching
 export const fetchUpcomingFixtures = async (): Promise<Fixture[]> => {
-    return await fetchFixturesWithCache(API_URLS.FETCH_UPCOMING_FIXTURES);
+    return await fetchFixturesWithCache(url);
 };
 
 // Fetch single fixture details with caching
