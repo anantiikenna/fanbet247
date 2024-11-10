@@ -23,7 +23,7 @@ const MobileNavbar = () => {
               width={50}
               height={50}
               alt="menu"
-              className="w-[18px] h-[12px] cursor-pointer"
+              className="w-[28px] h-[22px] cursor-pointer"
             />
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -61,7 +61,7 @@ const MobileNavbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
         <Link href="/">
-          <Image src='/assets/icons/logo.svg' alt="logo" width={200} height={100} className="w-[101px] h-[23px]" />
+          <Image src='/assets/icons/logo.svg' alt="logo" width={150} height={100} className="" />
         </Link>
       </div>
       <ul className='flex w-full justify-between gap-2 px-5'>
