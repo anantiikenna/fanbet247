@@ -5,7 +5,6 @@ export const authLinks = {
   resetPassword: '/reset-password',
 };
 
-
 export const navLinks = [
     {
       route: "/",
@@ -31,7 +30,7 @@ export const navLinks = [
       route: "/partners",
       label: "Partners",
     },
-  ];
+];
 
 export const trendlingLinks = [
   {
@@ -74,7 +73,7 @@ export const trendlingLinks = [
     route: "/upcoming",
     label: "Germany Bundesliga I",
   },
-]
+];
 
 export const mtrendlingLinks = [
   {
@@ -108,7 +107,7 @@ export const mtrendlingLinks = [
     label: "Copa Libertadores",
   },
   
-]
+];
 
 export const footerLinks = [
   {
@@ -139,7 +138,7 @@ export const footerLinks = [
     route: "termsconditons",
     label: "Terms & Conditions",
   },
-]
+];
 
 export const gameTypes  = [
   {
@@ -157,4 +156,27 @@ export const gameTypes  = [
   {
     label: "GameType5",
   }
-]
+];
+
+export const players = [
+  { rank: 1, username: "Alice", gameplayed: 50, points: 1200 },
+  { rank: 2, username: "Bob", gameplayed: 48, points: 1180 },
+  { rank: 3, username: "Charlie", gameplayed: 47, points: 1140 },
+  { rank: 4, username: "Diana", gameplayed: 45, points: 1100 },
+  { rank: 5, username: "Eve", gameplayed: 43, points: 1080 },
+  { rank: 6, username: "Frank", gameplayed: 42, points: 1050 },
+  { rank: 7, username: "Grace", gameplayed: 41, points: 1040 },
+  { rank: 8, username: "Hank", gameplayed: 40, points: 1020 },
+  { rank: 9, username: "Ivy", gameplayed: 39, points: 1010 },
+  { rank: 10, username: "Jack", gameplayed: 38, points: 1000 },
+  { rank: 11, username: "Karen", gameplayed: 37, points: 980 },
+  { rank: 12, username: "Leo", gameplayed: 36, points: 970 },
+  { rank: 13, username: "Mona", gameplayed: 35, points: 960 },
+  { rank: 14, username: "Nate", gameplayed: 34, points: 940 },
+  { rank: 15, username: "Olivia", gameplayed: 33, points: 920 },
+  { rank: 16, username: "Paul", gameplayed: 32, points: 910 },
+  { rank: 17, username: "Quincy", gameplayed: 31, points: 900 },
+  { rank: 18, username: "Rita", gameplayed: 30, points: 890 },
+  { rank: 19, username: "Steve", gameplayed: 29, points: 880 },
+  { rank: 20, username: "Tina", gameplayed: 28, points: 870 }
+];

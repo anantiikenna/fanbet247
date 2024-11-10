@@ -13,7 +13,7 @@ export default function RootLayout({
       </Link>
       {children}
       <div className="w-full flex justify-center gap-10 text-white">
-        <Link href={'/termandconditions'}><p>Terms and Conditions</p></Link>
+        <Link href={'/termsandconditions'}><p>Terms and Conditions</p></Link>
         <Link href={'/privacy'}><p>Privacy</p></Link>
       </div>
     </main>

@@ -91,3 +91,12 @@ type SignupFormValues = z.infer<typeof signupSchema>;
 type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
 
 type PasswordResetFormValues = z.infer<typeof passwordResetSchema>;
+
+type players = Map<player[]>;
+
+interface player {
+  rank: number;
+  username: string;
+  gameplayed: number;
+  points: number;
+}
