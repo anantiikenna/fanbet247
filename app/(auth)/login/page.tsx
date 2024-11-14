@@ -1,4 +1,5 @@
-import LoginFormClient from "@/components/LoginFormClient"
+
+import LoginFormClient from "@/components/LoginFormClient";
 import Link from "next/link";
 
 const Login = () => {

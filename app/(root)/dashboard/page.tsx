@@ -141,10 +141,9 @@ const ProfileForm = () => {
                     <input {...getInputProps()} />
                     {profileImage ? (
                       <div className="w-full h-full flex flex-col items-center justify-center">
-                        {/* Image Preview */}
-                        {preview && (
-                          <div className=" place-items-center">
-                      
+                        {/* Conditionally Render Preview */}
+                        {typeof window !== 'undefined' && preview && (
+                          <div className="place-items-center">
                             <Image src={preview} alt="Profile Preview" width={250} height={230} className="rounded-md" />
                           </div>
                         )}
