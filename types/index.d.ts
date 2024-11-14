@@ -100,3 +100,14 @@ interface player {
   gameplayed: number;
   points: number;
 }
+
+// interface ProfileFormValues {
+//     name: string;
+//     dateOfBirth: string;
+//     gender: string;
+//     country: string;
+//     profileImage?: File;
+//     favoriteTeamImage?: File;
+//   }
+
+type ProfileFormValues = z.infer<typeof profileFormSchema>;

@@ -180,3 +180,15 @@ export const players = [
   { rank: 19, username: "Steve", gameplayed: 29, points: 880 },
   { rank: 20, username: "Tina", gameplayed: 28, points: 870 }
 ];
+
+export const dashboardLinks = [
+  { label: "My Profile", route: "/dashboard" },
+  { label: "Leaderboard", route: "/dashboard/leaderboard" },
+  { label: "Bet History", route: "/dashboard/bethistory" },
+  { label: "Change Password", route: "/dashboard/changepassword" },
+  { label: 'Withdraw', route: "/dashboard/withdraw" },
+  { label: "Deposit", route: "/dashboard/deposit" },
+  { label: "Verification", route: "/dashboard/verification" },
+  { label: "Notification", route: "/dashboardnotification" },
+  { label: "Transactions", route: "/dashboard/transaction" }
+]
