@@ -37,7 +37,7 @@ export const passwordResetSchema = z.object({
   path: ["confirmPassword"],
 });
 
-const MINIMUM_AGE = 18;
+// const MINIMUM_AGE = 18;
 
 // export const profileFormSchema = z.object({
 //   firstName: z.string().min(2, { message: "First name is required" }),
