@@ -182,7 +182,7 @@ export const players = [
 ];
 
 export const dashboardLinks = [
-  { label: "My Profile", route: "/dashboard" },
+  { label: "Dashboard", route: "/dashboard" },
   { label: "Leaderboard", route: "/dashboard/leaderboard" },
   { label: "Bet History", route: "/dashboard/bethistory" },
   { label: "Change Password", route: "/dashboard/changepassword" },

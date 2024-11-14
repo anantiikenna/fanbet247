@@ -111,3 +111,13 @@ interface player {
 //   }
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
+
+type BreadcrumbLinkType = {
+    label: string;
+    route: string;
+  };
+  
+  // Define the props type for the Breadcrumbs component
+  interface BreadcrumbsProps {
+    links: BreadcrumbLinkType[];
+  }
