@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,11 +6,11 @@ import { useState } from "react";
 import { forgotPasswordSchema } from "@/lib/validation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import Image from "next/image";
 
-
 const ForgotPasswordFormClient = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<ForgotPasswordFormValues>({
+  const form = useForm<ForgotPasswordFormValues>({
     resolver: zodResolver(forgotPasswordSchema),
   });
   const [isSubmitted, setIsSubmitted] = useState(false); // State to track form submission status
@@ -42,7 +42,7 @@ const ForgotPasswordFormClient = () => {
     return (
       <div className="flex flex-col items-center mt-14 gap-5">
         <p className="mt-4 text-center text-white">
-          Please check your email, we send a link to reset your password
+          Please check your email, we sent a link to reset your password
         </p>
         <Image src={'/assets/icons/send-email.svg'} alt='Sent mail' width={30} height={30} className="w-16 h-16 text-green-500" />
       </div>
@@ -50,14 +50,24 @@ const ForgotPasswordFormClient = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5 ">
-      <div className="w-full md:w-[320px]">
-        <p className="text-white">Email</p>
-        <Input {...register("email")} placeholder="Enter your email" type="email" />
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-      </div>
-      <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Continue</Button>
-    </form>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5 ">
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem className="w-full md:w-[320px]">
+              <FormLabel className="text-white">Email</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder="Enter your email" type="email" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Continue</Button>
+      </form>
+    </Form>
   );
 };
 

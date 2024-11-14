@@ -5,9 +5,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/lib/validation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 
 const LoginFormClient = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormValues>({
+  const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
   });
 
@@ -30,27 +31,42 @@ const LoginFormClient = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className=" mt-14 w-full flex flex-col items-center gap-5">
-      <div className="w-full md:w-[320px]">
-        <p className="text-white text-sm">Email</p>
-        <Input
-          {...register("email")}
-          placeholder="email@address.com"
-          type="email"
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5">
+        {/* Email Field */}
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem className="w-full md:w-[320px]">
+              <FormLabel className="text-white text-sm">Email</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder="email@address.com" type="email" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-      </div>
-      <div className="w-full md:w-[320px]">
-        <p className="text-white text-sm">Password</p>
-        <Input
-          {...register("password")}
-          placeholder="Enter your password"
-          type="password"
+
+        {/* Password Field */}
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem className="w-full md:w-[320px]">
+              <FormLabel className="text-white text-sm">Password</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder="Enter your password" type="password" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-      </div>
-      <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Login</Button>
-    </form>
+
+        {/* Submit Button */}
+        <Button type="submit" className="w-full md:w-[320px] bg-[#085D37]">Login</Button>
+      </form>
+    </Form>
   );
 };
 
