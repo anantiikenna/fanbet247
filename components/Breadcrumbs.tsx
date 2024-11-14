@@ -1,8 +1,9 @@
 'use client';
 
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '@/components/ui/breadcrumb'; // Adjust import as per your structure
+import React from 'react';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb'; // Adjust import as per your structure
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ links }) => {
   const pathname = usePathname();
@@ -17,16 +18,24 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ links }) => {
     .filter(Boolean) as BreadcrumbLinkType[]; // Type assertion to ensure type safety
 
   return (
-    <Breadcrumb>
-      {breadcrumbs.map((breadcrumb, index) => (
-        <BreadcrumbItem key={breadcrumb.route}>
-          <BreadcrumbLink as={Link} href={breadcrumb.route} iscurrentpage={index === breadcrumbs.length - 1}>
-            {breadcrumb.label}
-          </BreadcrumbLink>
-          <BreadcrumbSeparator />
-        </BreadcrumbItem>
-      ))}
-    </Breadcrumb>
+    <nav aria-label="breadcrumb">
+      <Breadcrumb>
+        <BreadcrumbList>
+          {/* Use React.Fragment to wrap each breadcrumb item and separator */}
+          {breadcrumbs.map((breadcrumb, index) => (
+            <React.Fragment key={breadcrumb.route}>
+              <BreadcrumbItem>
+                <BreadcrumbLink href={breadcrumb.route}>
+                  {breadcrumb.label}
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              {/* Render the separator only if it's not the last item */}
+              {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
+            </React.Fragment>
+          ))}
+        </BreadcrumbList>
+      </Breadcrumb>
+    </nav>
   );
 };
 

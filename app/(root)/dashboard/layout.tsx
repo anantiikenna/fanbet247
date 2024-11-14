@@ -1,6 +1,6 @@
 
 import Breadcrumbs from "@/components/Breadcrumbs";
-import DashboardNav from "@/components/DashboardNav";
+import DashboardNav from "@/components/sections/DashboardNav";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { dashboardLinks } from "@/constants";
