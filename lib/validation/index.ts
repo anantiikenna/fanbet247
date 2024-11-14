@@ -64,10 +64,10 @@ export const profileFormSchema = z.object({
     .instanceof(File)
     .optional()
     .or(z.string().optional()), // Supports file upload or an empty value
-  favoriteTeamImage: z
-    .instanceof(File)
-    .optional()
-    .or(z.string().optional()), // Supports file upload or an empty value
+  // favoriteTeamImage: z
+  //   .instanceof(filedocfiledoc)
+  //   .optional()
+  //   .or(z.string().optional()), // Supports file upload or an empty value
 });
 
 

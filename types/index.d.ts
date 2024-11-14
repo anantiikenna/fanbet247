@@ -101,6 +101,8 @@ interface player {
   points: number;
 }
 
+type filedoc = File;
+
 interface ProfileFormValues {
     firstName: string;
     surname: string;
@@ -108,7 +110,7 @@ interface ProfileFormValues {
     dateOfBirth: string;
     gender: string;
     country: string;
-    profileImage?: File;
+    profileImage?: filedoc;
     
   }
 
