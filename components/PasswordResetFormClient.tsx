@@ -55,7 +55,7 @@ const PasswordResetFormClient = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="mt-14 w-full flex flex-col items-center gap-5">
       <div className="w-full md:w-[320px]">
         <p className="text-white">Email</p>
-        <Input {...register("email")} placeholder="Enter your email" />
+        <Input {...register("email")} placeholder="Enter your email" type="email" />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
       <div className="w-full md:w-[320px]">
