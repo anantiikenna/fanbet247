@@ -100,8 +100,9 @@ interface player {
   gameplayed: number;
   points: number;
 }
+const filed = File;
 
-type filedoc = File;
+type filedoc = filed;
 
 interface ProfileFormValues {
     firstName: string;
