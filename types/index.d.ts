@@ -101,16 +101,16 @@ interface player {
   points: number;
 }
 
-// interface ProfileFormValues {
-//     name: string;
-//     dateOfBirth: string;
-//     gender: string;
-//     country: string;
-//     profileImage?: File;
-//     favoriteTeamImage?: File;
-//   }
+interface ProfileFormValues {
+    name: string;
+    dateOfBirth: string;
+    gender: string;
+    country: string;
+    profileImage?: File;
+    favoriteTeamImage?: File;
+  }
 
-type ProfileFormValues = z.infer<typeof profileFormSchema>;
+//type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 type BreadcrumbLinkType = {
     label: string;
