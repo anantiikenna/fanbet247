@@ -16,12 +16,12 @@ const ProfileForm = () => {
     resolver: zodResolver(profileFormSchema),
   });
 
-  const filedoc = File;
+  
 
   const [profileImage, setProfileImage] = useState<filedoc | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
-  const onDropProfileImage = (acceptedFiles: File[]) => {
+  const onDropProfileImage = (acceptedFiles: filedoc[]) => {
     const file = acceptedFiles[0];
     setProfileImage(file);
     setPreview(URL.createObjectURL(file)); // Generate a preview URL
