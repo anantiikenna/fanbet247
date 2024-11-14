@@ -63,7 +63,7 @@ export async function fetchFixturesWithCache(url: string, cacheTime: number = 30
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`Failed to fetch: ${response.statusText}`);
+      return []; //throw new Error(`Failed to fetch: ${response.statusText}`);
     }
 
     const data: Fixture[] = await response.json();
@@ -71,6 +71,19 @@ export async function fetchFixturesWithCache(url: string, cacheTime: number = 30
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
-    throw error;
+    return []; //throw error;
   }
 }
+
+// try {
+//   const response = await fetch(url);
+//   if (!response.ok) {
+//     console.error(`Failed to fetch: ${response.status} ${response.statusText}`);
+//     return []; // Return a default or fallback value if fetching fails
+//   }
+//   const data = await response.json();
+//   // Caching logic here...
+// } catch (error) {
+//   console.error("Error fetching data:", error);
+//   return []; // Return fallback data to prevent build errors
+// }
