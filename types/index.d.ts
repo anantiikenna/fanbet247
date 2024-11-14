@@ -102,12 +102,14 @@ interface player {
 }
 
 interface ProfileFormValues {
-    name: string;
+    firstName: string;
+    surname: string;
+    email: string;
     dateOfBirth: string;
     gender: string;
     country: string;
     profileImage?: File;
-    favoriteTeamImage?: File;
+    
   }
 
 //type ProfileFormValues = z.infer<typeof profileFormSchema>;
@@ -118,6 +120,6 @@ type BreadcrumbLinkType = {
   };
   
   // Define the props type for the Breadcrumbs component
-  interface BreadcrumbsProps {
+interface BreadcrumbsProps {
     links: BreadcrumbLinkType[];
-  }
+}
