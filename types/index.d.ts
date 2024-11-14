@@ -101,18 +101,18 @@ interface player {
   points: number;
 }
 
-type filedoc = File;
+// type filedoc = File;
 
-interface ProfileFormValues {
-    firstName: string;
-    surname: string;
-    email: string;
-    dateOfBirth: string;
-    gender: string;
-    country: string;
-    profileImage?: filedoc;
+// interface ProfileFormValues {
+//     firstName: string;
+//     surname: string;
+//     email: string;
+//     dateOfBirth: string;
+//     gender: string;
+//     country: string;
+//     profileImage?: filedoc;
     
-  }
+//   }
 
 //type ProfileFormValues = z.infer<typeof profileFormSchema>;
 

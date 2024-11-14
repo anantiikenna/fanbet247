@@ -39,35 +39,35 @@ export const passwordResetSchema = z.object({
 
 const MINIMUM_AGE = 18;
 
-export const profileFormSchema = z.object({
-  firstName: z.string().min(2, { message: "First name is required" }),
-  surname: z.string().min(2, { message: "Surname is required" }),
-  email: z.string().email({ message: "Invalid email address" }),
-  dateOfBirth: z.string().refine((value) => {
-    const today = new Date();
-    const birthDate = new Date(value);
-    const age = today.getFullYear() - birthDate.getFullYear();
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-    const dayDifference = today.getDate() - birthDate.getDate();
+// export const profileFormSchema = z.object({
+//   firstName: z.string().min(2, { message: "First name is required" }),
+//   surname: z.string().min(2, { message: "Surname is required" }),
+//   email: z.string().email({ message: "Invalid email address" }),
+//   dateOfBirth: z.string().refine((value) => {
+//     const today = new Date();
+//     const birthDate = new Date(value);
+//     const age = today.getFullYear() - birthDate.getFullYear();
+//     const monthDifference = today.getMonth() - birthDate.getMonth();
+//     const dayDifference = today.getDate() - birthDate.getDate();
     
-    // Check if user is exactly or just turned 18
-    return (
-      age > MINIMUM_AGE || 
-      (age === MINIMUM_AGE && monthDifference >= 0 && dayDifference >= 0)
-    );
-  }, {
-    message: `You must be at least ${MINIMUM_AGE} years old.`,
-  }),
-  gender: z.enum(["male", "female", "other"], { message: "Gender is required" }),
-  country: z.string().min(1, { message: "Country is required" }),
-  profileImage: z
-    .instanceof(File)
-    .optional()
-    .or(z.string().optional()), // Supports file upload or an empty value
-  // favoriteTeamImage: z
-  //   .instanceof(filedocfiledoc)
-  //   .optional()
-  //   .or(z.string().optional()), // Supports file upload or an empty value
-});
+//     // Check if user is exactly or just turned 18
+//     return (
+//       age > MINIMUM_AGE || 
+//       (age === MINIMUM_AGE && monthDifference >= 0 && dayDifference >= 0)
+//     );
+//   }, {
+//     message: `You must be at least ${MINIMUM_AGE} years old.`,
+//   }),
+//   gender: z.enum(["male", "female", "other"], { message: "Gender is required" }),
+//   country: z.string().min(1, { message: "Country is required" }),
+//   profileImage: z
+//     .instanceof(File)
+//     .optional()
+//     .or(z.string().optional()), // Supports file upload or an empty value
+//   // favoriteTeamImage: z
+//   //   .instanceof(filedocfiledoc)
+//   //   .optional()
+//   //   .or(z.string().optional()), // Supports file upload or an empty value
+// });
 
 
