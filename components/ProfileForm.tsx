@@ -8,24 +8,29 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue,} from "@
 import { profileFormSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
 
 const ProfileForm = () => {
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileFormSchema),
   });
-
   
-
-  const [profileImage, setProfileImage] = useState<filedoc | null>(null);
+  // State management for profile image using generic object array and preview string
+  const [uploadedImages, setUploadedImages] = useState<UploadedImageProps | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
-  const onDropProfileImage = (acceptedFiles: filedoc[]) => {
-    const file = acceptedFiles[0];
-    setProfileImage(file);
-    setPreview(URL.createObjectURL(file)); // Generate a preview URL
-  };
+  const onDropProfileImage = useCallback((acceptedFiles: CustomFile[]) => {
+    if (acceptedFiles.length > 0) {
+      const fileData = acceptedFiles[0];
+      setUploadedImages(fileData);
+  
+      // Convert `CustomFile` to `Blob` safely
+      const blob = new Blob([fileData], { type: fileData.type || 'image/png' });
+      setPreview(URL.createObjectURL(blob));
+    }
+  }, []);
+  
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: onDropProfileImage,
@@ -36,11 +41,12 @@ const ProfileForm = () => {
       'image/svg': []
     },
     multiple: false,
+    maxSize: 1024 * 1024, // Maximum size: 1MB
   });
 
   const onSubmit = async (data: ProfileFormValues) => {
     try {
-      console.log("Profile data submitted:", data, { profileImage });
+      console.log("Profile data submitted:", data, { uploadedImages });
       alert("Profile updated successfully!");
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -50,7 +56,8 @@ const ProfileForm = () => {
 
   const handleCancel = () => {
     form.reset();
-    setProfileImage(null);
+    setUploadedImages(null);
+    setPreview(null);
   };
 
   return (
@@ -141,15 +148,15 @@ const ProfileForm = () => {
                 <FormControl className="flex flex-col justify-center items-center w-full h-[250px] col-span-3 rounded-lg border-2 p-4">
                   <div {...getRootProps()} className="w-full h-full flex items-center justify-center cursor-pointer">
                     <input {...getInputProps()} />
-                    {profileImage ? (
+                    {uploadedImages ? (
                       <div className="w-full h-full flex flex-col items-center justify-center">
                         {/* Conditionally Render Preview */}
-                        {typeof window !== 'undefined' && preview && (
+                        {preview && (
                           <div className="place-items-center">
                             <Image src={preview} alt="Profile Preview" width={250} height={230} className="rounded-md" />
                           </div>
                         )}
-                        <p>{profileImage.name}</p>
+                        <p>{uploadedImages.name}</p>
                       </div>
                     ) : (
                       <div className="flex flex-col items-center justify-center">

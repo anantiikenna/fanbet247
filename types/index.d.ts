@@ -101,8 +101,23 @@ interface player {
   points: number;
 }
 
-type filedoc = File;
+interface UploadedImageProps {
+  name: string;
+  url?: string;
+  type?: string;
+  // Optional fields for flexibility
+  size?: number;
+  lastModified?: number; 
+}
 
+interface CustomFile extends Blob {
+    name: string;
+    type: string;
+    size: number;
+    lastModified: number;
+    // Add any additional properties or methods you need for your custom logic
+  }
+  
 interface ProfileFormValues {
     firstName: string;
     surname: string;
@@ -110,11 +125,11 @@ interface ProfileFormValues {
     dateOfBirth: string;
     gender: string;
     country: string;
-    profileImage?: filedoc;
-    
+    profileImage?: UploadedImageProps | string; // Represents either an uploaded image object or a string
   }
+  
+type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
-//type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 type BreadcrumbLinkType = {
     label: string;

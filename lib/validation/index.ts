@@ -37,7 +37,7 @@ export const passwordResetSchema = z.object({
   path: ["confirmPassword"],
 });
 
-const filed = File;
+
 const MINIMUM_AGE = 18;
 
 export const profileFormSchema = z.object({
@@ -62,13 +62,12 @@ export const profileFormSchema = z.object({
   gender: z.enum(["male", "female", "other"], { message: "Gender is required" }),
   country: z.string().min(1, { message: "Country is required" }),
   profileImage: z
-    .instanceof(filed)
+    .object({
+      name: z.string(),
+      url: z.string().optional(),
+      type: z.string().optional()
+    })
     .optional()
-    .or(z.string().optional()), // Supports file upload or an empty value
-  // favoriteTeamImage: z
-  //   .instanceof(filedocfiledoc)
-  //   .optional()
-  //   .or(z.string().optional()), // Supports file upload or an empty value
+    .or(z.string().optional()), // Supports an uploaded file representation or an empty value
 });
-
 
