@@ -12,6 +12,7 @@ import { useState, useCallback } from "react";
 import Image from "next/image";
 
 
+
 const VerificationForm = () => {
   const form = useForm<VerificationFormValues>({
     resolver: zodResolver(verificationFormSchema),
@@ -98,7 +99,10 @@ const VerificationForm = () => {
                         <p>{uploadedDocument.name}</p>
                       </div>
                     ) : (
-                      <p className="text-center">Click here to upload or drag & drop your document</p>
+                      <div className="flex flex-col items-center justify-center">
+                        <Image src={'assets/icons/upload.svg'} alt="upload" width={50} height={50} />
+                        <p className="text-center">Click here to upload or drag & drop your document</p>
+                      </div>
                     )}
                   </div>
                 </FormControl>

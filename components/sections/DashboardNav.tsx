@@ -18,7 +18,7 @@ const DashboardNav = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   return (
     <Sidebar {...props} className=' left-0 top-0 flex flex-col justify-between bg-[#17392B] px-5 text-white max-md:hidden p'>
       <SidebarHeader className="bg-[#17392B] ml-[-8px] pb-10 ">
-        <Image src={'/assets/icons/logo.svg'} alt="logo" width={120} height={120} />
+        <Image src={'/assets/icons/logo.svg'} alt="logo" width={120} height={100} />
       </SidebarHeader> 
       <SidebarContent className="bg-[#17392B] no-scrollbar">
           <ul className='flex flex-col justify-center gap-7 font-bold'>
