@@ -130,7 +130,7 @@ interface ProfileFormValues {
 
 interface VerificationFormValues {
     documentType: string;
-    uploadedDocument: File | null;
+    uploadedDocument: CustomFile | null;
     password: string;
 }
 
