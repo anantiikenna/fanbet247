@@ -98,8 +98,16 @@ export const withdrawFormSchema = z.object({
 
 export const verificationFormSchema = z.object({
   documentType: z.string().min(1, "Please select a document type"),
-  uploadedDocument: z.instanceof(File).nullable().refine((file) => file !== null, {
-    message: "A document must be uploaded",
-  }),
+  uploadedDocument: z.object({
+      name: z.string(),
+      url: z.string().optional(),
+      type: z.string().optional(),
+      size: z.number().optional(),
+      lastModified: z.number().optional(),
+    })
+    .nullable()
+    .refine((doc) => doc !== null, {
+      message: "A document must be uploaded",
+    }),
   password: z.string().min(1, "Password is required"),
 });
