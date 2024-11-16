@@ -100,7 +100,7 @@ const VerificationForm = () => {
                       </div>
                     ) : (
                       <div className="flex flex-col items-center justify-center">
-                        <Image src={'assets/icons/upload.svg'} alt="upload" width={50} height={50} />
+                        <Image src={'/assets/icons/upload.svg'} alt="upload" width={50} height={50} />
                         <p className="text-center">Click here to upload or drag & drop your document</p>
                       </div>
                     )}
@@ -116,7 +116,7 @@ const VerificationForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
-                <FormLabel className="font-semibold text-sm col-span-1">Enter your Fanbat247 password</FormLabel>
+                <FormLabel className="font-semibold text-sm col-span-1">Enter your Fanbet247 password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="Enter your password" {...field} className="col-span-3" />
                 </FormControl>
