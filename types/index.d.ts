@@ -127,9 +127,14 @@ interface ProfileFormValues {
     country: string;
     profileImage?: UploadedImageProps | string; // Represents either an uploaded image object or a string
   }
-  
-type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
+interface VerificationFormValues {
+    documentType: string;
+    uploadedDocument: File | null;
+    password: string;
+}
+
+type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
 type BreadcrumbLinkType = {
     label: string;
@@ -139,4 +144,15 @@ type BreadcrumbLinkType = {
   // Define the props type for the Breadcrumbs component
 interface BreadcrumbsProps {
     links: BreadcrumbLinkType[];
+}
+
+type ChangePasswordFormValues = z.infer<typeof changePasswordSchema>;
+
+interface WithdrawFormValues {
+    repeatWithDifferentAmount: boolean;
+    amount: string;
+    bank: string;
+    accountNumber: string;
+    recipientName: string;
+    password: string;
 }

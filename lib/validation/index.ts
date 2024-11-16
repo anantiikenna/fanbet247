@@ -71,3 +71,36 @@ export const profileFormSchema = z.object({
     .or(z.string().optional()), // Supports an uploaded file representation or an empty value
 });
 
+
+
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(1, "Current password is required"),
+  newPassword: z.string().min(8, "New password must be at least 8 characters")
+    .regex(/[A-Z]/, "New password must contain an uppercase letter")
+    .regex(/[0-9]/, "New password must contain a number"),
+  confirmPassword: z.string(),
+}).refine((data) => data.newPassword === data.confirmPassword, {
+  message: "Passwords do not match",
+  path: ["confirmPassword"],
+});
+
+
+export const withdrawFormSchema = z.object({
+  repeatWithDifferentAmount: z.boolean(),
+  amount: z.string().min(1, "Amount is required").refine(val => parseFloat(val) > 0, {
+    message: "Amount must be greater than 0",
+  }),
+  bank: z.string().min(1, "Bank is required"),
+  accountNumber: z.string().min(1, "Account number is required").length(10, "Account number must be 10 digits"),
+  recipientName: z.string().min(1, "Recipient name is required"),
+  password: z.string().min(1, "Password is required"),
+});
+
+
+export const verificationFormSchema = z.object({
+  documentType: z.string().min(1, "Please select a document type"),
+  uploadedDocument: z.instanceof(File).nullable().refine((file) => file !== null, {
+    message: "A document must be uploaded",
+  }),
+  password: z.string().min(1, "Password is required"),
+});
