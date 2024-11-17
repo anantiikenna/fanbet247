@@ -102,7 +102,7 @@ const TransactionForm = () => {
       <div className="mt-8">
         <Table className="">
           <TableHeader>
-            <TableRow className="text-xs ">
+            <TableRow className="grid grid-cols-6 text-xs text-s overflow-auto ">
               <TableHead className="text-left">Ref_ID</TableHead>
               <TableHead className="text-left">Date</TableHead>
               <TableHead className=" ">Type</TableHead>
@@ -113,7 +113,7 @@ const TransactionForm = () => {
           </TableHeader>
           <TableBody>
             {transactions.map((transaction, index) => (
-              <TableRow key={index} className="w-full text-xs ">
+              <TableRow key={index} className="grid grid-cols-6 text-xs overflow-auto ">
                 <TableCell className="text-left">{transaction.refId}</TableCell>
                 <TableCell className="text-left">{transaction.transactionDate}</TableCell>
                 <TableCell className=" ">{transaction.type}</TableCell>
