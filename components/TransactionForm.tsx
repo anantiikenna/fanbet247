@@ -100,26 +100,26 @@ const TransactionForm = () => {
 
       {/* Transaction Table */}
       <div className="mt-8">
-        <Table className="overflow-auto">
+        <Table className="">
           <TableHeader>
-            <TableRow className="grid grid-cols-8 w-full gap-1 text-xs ">
-              <TableHead className="col-span-2 place-content-center">Ref ID</TableHead>
-              <TableHead className="col-span-2 place-content-center">Transaction Date</TableHead>
-              <TableHead className=" place-content-center">Type</TableHead>
-              <TableHead className=" place-content-center">Amount</TableHead>
-              <TableHead className=" place-content-center">Balance</TableHead>
-              <TableHead className=" place-content-center">Status</TableHead>
+            <TableRow className="text-xs ">
+              <TableHead className="text-left">Ref_ID</TableHead>
+              <TableHead className="text-left">Date</TableHead>
+              <TableHead className=" ">Type</TableHead>
+              <TableHead className=" text-right">Amount</TableHead>
+              <TableHead className=" text-right">Balance</TableHead>
+              <TableHead className=" ">Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {transactions.map((transaction, index) => (
-              <TableRow key={index} className="grid grid-cols-8 w-full gap-1 text-xs ">
-                <TableCell className="col-span-2 place-content-center">{transaction.refId}</TableCell>
-                <TableCell className="col-span-2 place-content-center">{transaction.transactionDate}</TableCell>
-                <TableCell className=" place-content-center">{transaction.type}</TableCell>
-                <TableCell className=" place-content-center">{transaction.amount}</TableCell>
-                <TableCell className=" place-content-center">{transaction.balance}</TableCell>
-                <TableCell className=" place-content-center">{transaction.status}</TableCell>
+              <TableRow key={index} className="w-full text-xs ">
+                <TableCell className="text-left">{transaction.refId}</TableCell>
+                <TableCell className="text-left">{transaction.transactionDate}</TableCell>
+                <TableCell className=" ">{transaction.type}</TableCell>
+                <TableCell className=" text-right">{transaction.amount}</TableCell>
+                <TableCell className=" text-right">{transaction.balance}</TableCell>
+                <TableCell className=" ">{transaction.status}</TableCell>
               </TableRow>
             ))}
           </TableBody>
