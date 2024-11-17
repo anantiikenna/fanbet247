@@ -182,13 +182,26 @@ export const players = [
 ];
 
 export const dashboardLinks = [
-  { label: "Dashboard", route: "/dashboard" },
-  { label: "Leaderboard", route: "/dashboard/leaderboard" },
+  { label: "My Profile", route: "/dashboard" },
+  { label: "Change Password", route: "/dashboard/changepassword" },\
+  { label: 'Withdraw', route: "/dashboard/withdraw" },
+  { label: "Deposit", route: "/dashboard/deposit" },
+  { label: "Transactions", route: "/dashboard/transactions" }
   { label: "Bet History", route: "/dashboard/bethistory" },
+  { label: "Leaderboard", route: "/dashboard/leaderboard" }, 
+  { label: "Verification", route: "/dashboard/verification" },
+  { label: "Notification", route: "/dashboard/notification" },
+  
+]
+
+export const dashboardLinks2 = [
+  { label: "Dashboard", route: "/dashboard" },
   { label: "Change Password", route: "/dashboard/changepassword" },
   { label: 'Withdraw', route: "/dashboard/withdraw" },
   { label: "Deposit", route: "/dashboard/deposit" },
-  { label: "Verification", route: "/dashboard/verification" },
-  { label: "Notification", route: "/dashboardnotification" },
   { label: "Transactions", route: "/dashboard/transactions" }
+  { label: "Bet History", route: "/dashboard/bethistory" },
+  { label: "Leaderboard", route: "/dashboard/leaderboard" }, 
+  { label: "Verification", route: "/dashboard/verification" },
+  { label: "Notification", route: "/dashboard/notification" },
 ]

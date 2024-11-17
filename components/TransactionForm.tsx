@@ -48,7 +48,10 @@ const TransactionForm = () => {
     <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 w-full flex flex-col items-start gap-4 px-[5%]">
-
+          <div className="flex flex-col border-b border-[#E4E7EC] w-full">
+            <h1 className="text-lg font-semibold">Transactions</h1>
+            <p className="text-[#475467]">View your Transactions history here</p>
+          </div>
           {/* Transaction Type Selection */}
           <FormField
             control={form.control}
@@ -58,7 +61,7 @@ const TransactionForm = () => {
                 <FormLabel className="font-semibold text-sm col-span-1">Transaction Type</FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <SelectTrigger className="col-span-3">
+                    <SelectTrigger className="w-full md:col-span-3">
                       <SelectValue placeholder="Select transaction type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -97,26 +100,26 @@ const TransactionForm = () => {
 
       {/* Transaction Table */}
       <div className="mt-8">
-        <Table>
+        <Table className="overflow-auto">
           <TableHeader>
-            <TableRow>
-              <TableHead>Ref ID</TableHead>
-              <TableHead>Transaction Date</TableHead>
-              <TableHead>Type</TableHead>
-              <TableHead>Amount</TableHead>
-              <TableHead>Balance</TableHead>
-              <TableHead>Status</TableHead>
+            <TableRow className="grid grid-cols-8 w-full gap-1 text-xs ">
+              <TableHead className="col-span-2 place-content-center">Ref ID</TableHead>
+              <TableHead className="col-span-2 place-content-center">Transaction Date</TableHead>
+              <TableHead className=" place-content-center">Type</TableHead>
+              <TableHead className=" place-content-center">Amount</TableHead>
+              <TableHead className=" place-content-center">Balance</TableHead>
+              <TableHead className=" place-content-center">Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {transactions.map((transaction, index) => (
-              <TableRow key={index}>
-                <TableCell>{transaction.refId}</TableCell>
-                <TableCell>{transaction.transactionDate}</TableCell>
-                <TableCell>{transaction.type}</TableCell>
-                <TableCell>{transaction.amount}</TableCell>
-                <TableCell>{transaction.balance}</TableCell>
-                <TableCell>{transaction.status}</TableCell>
+              <TableRow key={index} className="grid grid-cols-8 w-full gap-1 text-xs ">
+                <TableCell className="col-span-2 place-content-center">{transaction.refId}</TableCell>
+                <TableCell className="col-span-2 place-content-center">{transaction.transactionDate}</TableCell>
+                <TableCell className=" place-content-center">{transaction.type}</TableCell>
+                <TableCell className=" place-content-center">{transaction.amount}</TableCell>
+                <TableCell className=" place-content-center">{transaction.balance}</TableCell>
+                <TableCell className=" place-content-center">{transaction.status}</TableCell>
               </TableRow>
             ))}
           </TableBody>
