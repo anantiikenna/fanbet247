@@ -27,16 +27,20 @@ const WithdrawForm = () => {
   return (
     <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 w-full flex flex-col items-start gap-4 px-[5%]">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-2 w-full flex flex-col items-start gap-4 px-[5%]">
+          <div className="flex flex-col border-b pb-4 border-[#E4E7EC] w-full">
+            <h1 className="text-lg font-semibold">Withdraw</h1>
+            <p className="text-[#475467]">Make your withdrawal request here.</p>
+          </div>
           {/* Repeat Withdrawal */}
           <FormField
             control={form.control}
             name="repeatWithDifferentAmount"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Repeat with another amount</FormLabel>
                 <FormControl>
-                <Input type="checkbox" checked={field.value} onChange={field.onChange} className="col-span-3"/>
+                <Input type="checkbox" checked={field.value} onChange={field.onChange} className="w-full col-span-3"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -48,7 +52,7 @@ const WithdrawForm = () => {
             control={form.control}
             name="amount"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Amount</FormLabel>
                 <FormControl>
                   <Input type="text" placeholder="Enter amount" {...field} className="col-span-3" />
@@ -63,7 +67,7 @@ const WithdrawForm = () => {
             control={form.control}
             name="bank"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-semibold">Recipient’s bank</FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -87,7 +91,7 @@ const WithdrawForm = () => {
             control={form.control}
             name="accountNumber"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-semibold">Recipient’s account number</FormLabel>
                 <FormControl>
                   <Input type="text" placeholder="Enter account number" {...field} className="col-span-3" />
@@ -102,7 +106,7 @@ const WithdrawForm = () => {
             control={form.control}
             name="recipientName"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-semibold">Recipient’s name</FormLabel>
                 <FormControl>
                   <Input type="text" placeholder="Enter recipient's name" {...field} className="col-span-3" />
@@ -117,7 +121,7 @@ const WithdrawForm = () => {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-semibold">Enter your Fanbat247 password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="Enter password" {...field} className="col-span-3" />
@@ -128,9 +132,9 @@ const WithdrawForm = () => {
           />
 
           {/* Buttons */}
-          <div className="grid grid-cols-4 justify-start gap-10 items-center w-full">
-            <Button type="button" onClick={() => form.reset()} className="col-start-2 col-span-1 bg-gray-300 text-black">Cancel</Button>
-            <Button type="submit" className="col-span-1 bg-[#085D37] text-white">Withdraw</Button>
+          <div className="md:grid md:grid-cols-4 flex justify-start gap-10 items-center w-full">
+            <Button type="button" onClick={() => form.reset()} className="w-full md:col-start-2 col-span-1 bg-gray-300 text-black">Cancel</Button>
+            <Button type="submit" className="w-full md:col-span-1 bg-[#085D37] text-white">Withdraw</Button>
           </div>
         </form>
       </Form>

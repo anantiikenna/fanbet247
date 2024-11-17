@@ -56,14 +56,17 @@ const VerificationForm = () => {
   return (
     <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 w-full flex flex-col items-start gap-4 px-[5%]">
-
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-2 w-full flex flex-col items-start gap-4 px-[5%]">
+          <div className="flex flex-col border-b pb-4 border-[#E4E7EC] w-full">
+            <h1 className="text-lg font-semibold">Withdraw</h1>
+            <p className="text-[#475467]">Make your withdrawal request here.</p>
+          </div>
           {/* Document Type Selection */}
           <FormField
             control={form.control}
             name="documentType"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Choose a document type</FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -87,7 +90,7 @@ const VerificationForm = () => {
             control={form.control}
             name="uploadedDocument"
             render={() => (
-              <FormItem className="grid grid-cols-5 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-5 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-bold col-span-2">Upload your document</FormLabel>
                 <FormControl className="flex flex-col justify-center items-center w-full h-[200px] col-span-3 rounded-lg border-2 p-4">
                   <div {...getRootProps()} className="w-full h-full flex items-center justify-center cursor-pointer">
@@ -114,7 +117,7 @@ const VerificationForm = () => {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Enter your Fanbet247 password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="Enter your password" {...field} className="col-span-3" />
@@ -126,7 +129,7 @@ const VerificationForm = () => {
 
           {/* Buttons */}
           <div className="grid grid-cols-4 justify-start gap-10 items-center w-full">
-            <Button type="submit" className="col-start-2 col-span-1 bg-[#085D37] text-white">Submit</Button>
+            <Button type="submit" className="col-start-2 col-span-2 bg-[#085D37] text-white">Submit</Button>
           </div>
 
         </form>

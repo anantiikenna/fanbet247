@@ -25,8 +25,8 @@ const ChangePasswordForm = () => {
   return (
     <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 w-full flex flex-col items-start gap-4 px-[5%]">
-          <div className="flex flex-col border-b border-[#E4E7EC] w-full">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-2 w-full flex flex-col items-start gap-4 px-[5%]">
+          <div className="flex flex-col pb-4 border-b border-[#E4E7EC] w-full">
             <h1 className="text-lg font-semibold">Change Password</h1>
             <p className="text-[#475467]">Update your account password here</p>
           </div>
