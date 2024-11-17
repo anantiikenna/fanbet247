@@ -183,7 +183,7 @@ export const players = [
 
 export const dashboardLinks = [
   { label: "My Profile", route: "/dashboard" },
-  { label: "Change Password", route: "/dashboard/changepassword" },\
+  { label: "Change Password", route: "/dashboard/changepassword" },
   { label: 'Withdraw', route: "/dashboard/withdraw" },
   { label: "Deposit", route: "/dashboard/deposit" },
   { label: "Transactions", route: "/dashboard/transactions" }
