@@ -156,3 +156,42 @@ interface WithdrawFormValues {
     recipientName: string;
     password: string;
 }
+
+// Type for transaction types, restricting values to 'credit' or 'debit'
+type TransactionType = 'credit' | 'debit';
+
+// Interface for the form data
+interface TransactionFormValues {
+    transactionType: TransactionType;  // Ensures the transaction type is either 'credit' or 'debit'
+    dateRange: { from: Date; to: Date };  // Defines the date range for the transaction
+  }
+
+// Interface for the transaction data
+interface Transaction {
+    refId: string;  // Reference ID for each transaction
+    transactionDate: string;  // Date of the transaction
+    type: TransactionType;  // Transaction type, either 'credit' or 'debit'
+    amount: string;  // Transaction amount, formatted as a string (e.g., "$100.00")
+    balance: string;  // Account balance, formatted as a string (e.g., "$1000.00")
+    status: string;  // Current status of the transaction, e.g., 'Pending'
+}
+
+interface Transaction {
+    refId: string;
+    transactionDate: string;
+    type: string;
+    amount: string;
+    balance: string;
+    status: string;
+  }
+  
+  interface TransactionFormValues {
+    transactionType: string;
+    dateRange: { from: Date; to: Date };
+  }
+
+
+interface DatePickerWithRangeProps {
+    className?: string;
+    onDateChange: (dateRange: DateRange) => void;
+}

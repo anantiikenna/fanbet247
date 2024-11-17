@@ -111,3 +111,15 @@ export const verificationFormSchema = z.object({
     }),
   password: z.string().min(1, "Password is required"),
 });
+
+
+// Define the TransactionType as an enum with 'credit' and 'debit' values
+export const transactionTypeEnum = z.enum(['credit', 'debit']);
+
+export const transactionFormSchema = z.object({
+  transactionType: transactionTypeEnum, // Validates the transaction type to be either 'credit' or 'debit'
+  dateRange: z.object({
+    from: z.date(),  // Ensure the 'from' date is a valid date
+    to: z.date().optional(),  // 'to' date is optional but must be a valid date if provided
+  }),
+});

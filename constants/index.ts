@@ -190,5 +190,5 @@ export const dashboardLinks = [
   { label: "Deposit", route: "/dashboard/deposit" },
   { label: "Verification", route: "/dashboard/verification" },
   { label: "Notification", route: "/dashboardnotification" },
-  { label: "Transactions", route: "/dashboard/transaction" }
+  { label: "Transactions", route: "/dashboard/transactions" }
 ]
