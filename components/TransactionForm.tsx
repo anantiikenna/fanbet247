@@ -54,7 +54,7 @@ const TransactionForm = () => {
             control={form.control}
             name="transactionType"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Transaction Type</FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -77,7 +77,7 @@ const TransactionForm = () => {
             control={form.control}
             name="dateRange"
             render={() => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Date Range</FormLabel>
                 <FormControl>
                   <DatePickerWithRange />
@@ -88,8 +88,8 @@ const TransactionForm = () => {
           />
 
           {/* Submit Button */}
-          <div className="grid grid-cols-4 justify-start gap-10 items-center w-full">
-            <Button type="submit" className="col-start-2 col-span-1 bg-[#085D37] text-white">Submit</Button>
+          <div className="md:grid grid-cols-4 justify-start gap-10 items-center w-full">
+            <Button type="submit" className="w-full col-start-2 col-span-1 bg-[#085D37] text-white">Submit</Button>
           </div>
 
         </form>

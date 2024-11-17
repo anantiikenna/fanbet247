@@ -74,7 +74,7 @@ const ProfileForm = () => {
             control={form.control}
             name="firstName"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">First name</FormLabel>
                 <FormControl>
                   <Input type="text" placeholder="Enter your name" {...field} className="col-span-3" />
@@ -89,7 +89,7 @@ const ProfileForm = () => {
             control={form.control}
             name="surname"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-semibold">Surname</FormLabel>
                 <FormControl>
                   <Input type="text" placeholder="Enter your surname" {...field} className="col-span-3" />
@@ -104,7 +104,7 @@ const ProfileForm = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-bold">Email</FormLabel>
                 <FormControl>
                   <Input type="email" placeholder="Enter your email" {...field} className="col-span-3" />
@@ -119,7 +119,7 @@ const ProfileForm = () => {
             control={form.control}
             name="gender"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-bold">Gender</FormLabel>
                 <FormControl>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -143,8 +143,8 @@ const ProfileForm = () => {
             control={form.control}
             name="profileImage"
             render={() => (
-              <FormItem className="grid grid-cols-5 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
-                <FormLabel className="font-bold col-span-2">Your photo</FormLabel>
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+                <FormLabel className="font-bold col-span-1">Your photo</FormLabel>
                 <FormControl className="flex flex-col justify-center items-center w-full h-[250px] col-span-3 rounded-lg border-2 p-4">
                   <div {...getRootProps()} className="w-full h-full flex items-center justify-center cursor-pointer">
                     <input {...getInputProps()} />
@@ -175,7 +175,7 @@ const ProfileForm = () => {
             control={form.control}
             name="dateOfBirth"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-bold">Date of Birth</FormLabel>
                 <FormControl  className="col-span-2" >
                   <Input type="date" {...field} className="w-full" />
@@ -190,7 +190,7 @@ const ProfileForm = () => {
             control={form.control}
             name="country"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-bold">Country</FormLabel>
                 <FormControl  className="" >
                   <Select onValueChange={field.onChange} defaultValue={field.value} >
@@ -211,9 +211,9 @@ const ProfileForm = () => {
           />
 
           {/* Buttons */}
-          <div className="grid grid-cols-4 justify-start gap-10 items-center w-full">
-            <Button type="button" onClick={handleCancel} className=" col-start-2 col-span-1 bg-gray-300 text-black">Cancel</Button>
-            <Button type="submit" className="col-span-1 bg-[#085D37] text-white">Save</Button>
+          <div className="md:grid md:grid-cols-4 flex justify-start gap-10 items-center w-full">
+            <Button type="button" onClick={handleCancel} className="w-full col-start-2 col-span-1 bg-gray-300 text-black">Cancel</Button>
+            <Button type="submit" className="w-full col-span-1 bg-[#085D37] text-white">Save</Button>
           </div>
         </form>
       </Form>

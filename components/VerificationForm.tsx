@@ -12,7 +12,6 @@ import { useState, useCallback } from "react";
 import Image from "next/image";
 
 
-
 const VerificationForm = () => {
   const form = useForm<VerificationFormValues>({
     resolver: zodResolver(verificationFormSchema),
