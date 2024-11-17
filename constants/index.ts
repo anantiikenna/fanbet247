@@ -186,7 +186,7 @@ export const dashboardLinks = [
   { label: "Change Password", route: "/dashboard/changepassword" },
   { label: 'Withdraw', route: "/dashboard/withdraw" },
   { label: "Deposit", route: "/dashboard/deposit" },
-  { label: "Transactions", route: "/dashboard/transactions" }
+  { label: "Transactions", route: "/dashboard/transactions" },
   { label: "Bet History", route: "/dashboard/bethistory" },
   { label: "Leaderboard", route: "/dashboard/leaderboard" }, 
   { label: "Verification", route: "/dashboard/verification" },
@@ -199,7 +199,7 @@ export const dashboardLinks2 = [
   { label: "Change Password", route: "/dashboard/changepassword" },
   { label: 'Withdraw', route: "/dashboard/withdraw" },
   { label: "Deposit", route: "/dashboard/deposit" },
-  { label: "Transactions", route: "/dashboard/transactions" }
+  { label: "Transactions", route: "/dashboard/transactions" },
   { label: "Bet History", route: "/dashboard/bethistory" },
   { label: "Leaderboard", route: "/dashboard/leaderboard" }, 
   { label: "Verification", route: "/dashboard/verification" },
