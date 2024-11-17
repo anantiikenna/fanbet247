@@ -36,7 +36,7 @@ const ChangePasswordForm = () => {
             control={form.control}
             name="currentPassword"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Current Password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="Enter your current password" {...field} className="col-span-3" />
@@ -51,7 +51,7 @@ const ChangePasswordForm = () => {
             control={form.control}
             name="newPassword"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">New Password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="Enter a new password" {...field} className="col-span-3" />
@@ -66,7 +66,7 @@ const ChangePasswordForm = () => {
             control={form.control}
             name="confirmPassword"
             render={({ field }) => (
-              <FormItem className="grid grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Confirm Password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="Confirm your new password" {...field} className="col-span-3" />
@@ -77,9 +77,9 @@ const ChangePasswordForm = () => {
           />
 
           {/* Buttons */}
-          <div className="grid grid-cols-4 justify-start gap-10 items-center w-full">
-            <Button type="button" onClick={() => form.reset()} className="col-start-2 col-span-1 bg-gray-300 text-black">Cancel</Button>
-            <Button type="submit" className="col-span-1 bg-[#085D37] text-white">Save</Button>
+          <div className="md:grid md:grid-cols-4 flex justify-start gap-10 items-center w-full">
+            <Button type="button" onClick={() => form.reset()} className=" w-full md:col-start-2 md:col-span-1 bg-gray-300 text-black">Cancel</Button>
+            <Button type="submit" className=" w-full md:col-span-1 bg-[#085D37] text-white">Save</Button>
           </div>
         </form>
       </Form>
