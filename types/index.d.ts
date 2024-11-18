@@ -195,3 +195,11 @@ interface DatePickerWithRangeProps {
     className?: string;
     onDateChange: (dateRange: DateRange) => void;
 }
+
+type DepositFormValues = {
+    amount: string;
+    bank: string;
+    accountNumber: string;
+    notes?: string;
+  };
+  

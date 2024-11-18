@@ -2,7 +2,6 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { players } from '@/constants'
 import Image from 'next/image'
 
-
 const League247 = () => {
   return (
     <div>

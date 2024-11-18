@@ -123,3 +123,11 @@ export const transactionFormSchema = z.object({
     to: z.date().optional(),  // 'to' date is optional but must be a valid date if provided
   }),
 });
+
+
+export const depositFormSchema = z.object({
+  amount: z.string().nonempty("Amount is required"),
+  bank: z.string().nonempty("Bank selection is required"),
+  accountNumber: z.string().nonempty("Account number is required"),
+  notes: z.string().optional(),
+});
