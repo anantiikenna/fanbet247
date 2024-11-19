@@ -1,4 +1,4 @@
-import ForgotPasswordFormClient from '@/components/ForgotPasswordFormClient'
+import ForgotPasswordFormClient from '@/components/authsection/ForgotPasswordFormClient'
 
 const Forgotten = () => {
   return (

@@ -1,4 +1,4 @@
-import TransactionForm from '@/components/TransactionForm';
+import TransactionForm from '@/components/dashboardsection/TransactionForm';
 
 
 const Transaction = () => {

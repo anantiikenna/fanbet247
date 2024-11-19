@@ -126,8 +126,18 @@ export const transactionFormSchema = z.object({
 
 
 export const depositFormSchema = z.object({
-  amount: z.string().nonempty("Amount is required"),
-  bank: z.string().nonempty("Bank selection is required"),
-  accountNumber: z.string().nonempty("Account number is required"),
+  amount: z.number().min(1,{ message: "Amount is required"}),
+  bank: z.string().min(1,{ message: "Bank selection is required"}),
+  accountNumber: z.string().min(1,{ message: "Account number is required"}),
   notes: z.string().optional(),
+});
+
+
+
+export const betHistoryFormSchema = z.object({
+  betType: z.string().min(1, { message: "Bet type is required" }),
+  dateRange: z.object({
+    from: z.date(),
+    to: z.date(),
+  }),
 });

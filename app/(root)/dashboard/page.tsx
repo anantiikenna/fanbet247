@@ -1,4 +1,4 @@
-import ProfileForm from '@/components/ProfileForm'
+import ProfileForm from '@/components/dashboardsection/ProfileForm'
 import React from 'react'
 
 const MyProfile = () => {

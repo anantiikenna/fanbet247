@@ -126,7 +126,7 @@ interface ProfileFormValues {
     gender: string;
     country: string;
     profileImage?: UploadedImageProps | string; // Represents either an uploaded image object or a string
-  }
+}
 
 interface VerificationFormValues {
     documentType: string;
@@ -164,7 +164,7 @@ type TransactionType = 'credit' | 'debit';
 interface TransactionFormValues {
     transactionType: TransactionType;  // Ensures the transaction type is either 'credit' or 'debit'
     dateRange: { from: Date; to: Date };  // Defines the date range for the transaction
-  }
+}
 
 // Interface for the transaction data
 interface Transaction {
@@ -173,23 +173,13 @@ interface Transaction {
     type: TransactionType;  // Transaction type, either 'credit' or 'debit'
     amount: string;  // Transaction amount, formatted as a string (e.g., "$100.00")
     balance: string;  // Account balance, formatted as a string (e.g., "$1000.00")
-    status: string;  // Current status of the transaction, e.g., 'Pending'
+    status: 'Pending'
 }
 
-interface Transaction {
-    refId: string;
-    transactionDate: string;
-    type: string;
-    amount: string;
-    balance: string;
-    status: string;
-  }
-  
-  interface TransactionFormValues {
+interface TransactionFormValues {
     transactionType: string;
     dateRange: { from: Date; to: Date };
-  }
-
+}
 
 interface DatePickerWithRangeProps {
     className?: string;
@@ -202,4 +192,22 @@ type DepositFormValues = {
     accountNumber: string;
     notes?: string;
   };
+
+interface BetHistoryFormValues {
+    betStatus: "openbets" | "settledbets";
+    betType: "single" | "multiple" | "system";
+    dateRange: {
+      from: Date;
+      to: Date;
+    };
+    fixture:string;
+}
   
+interface Bet {
+    refId: string;
+    betDate: string;
+    betType: string;
+    stake: string;
+    fixture: string;
+    status: "Pending" | "Won" | "Lost";
+}

@@ -1,4 +1,4 @@
-import WithdrawForm from '@/components/WithdrawForm'
+import WithdrawForm from '@/components/dashboardsection/WithdrawForm'
 
 
 const Withdraw = () => {

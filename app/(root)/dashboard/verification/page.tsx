@@ -1,4 +1,4 @@
-import VerificationForm from '@/components/VerificationForm'
+import VerificationForm from '@/components/dashboardsection/VerificationForm'
 
 const Verification = () => {
   return (

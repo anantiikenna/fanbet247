@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { depositFormSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
 import Image from "next/image";
 
 const DepositForm = () => {
@@ -41,7 +41,7 @@ const DepositForm = () => {
               <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
                 <FormLabel className="font-semibold text-sm col-span-1">Amount</FormLabel>
                 <FormControl>
-                  <Input type="text" placeholder="Enter amount" {...field} className="col-span-3" />
+                  <Input type="text" placeholder="₦ 0.00" {...field} className="col-span-3" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -53,10 +53,10 @@ const DepositForm = () => {
             control={form.control}
             name="bank"
             render={({ field }) => (
-              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center pb-5 border-b border-[#E4E7EC] w-full">
+              <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-start pb-5 border-b border-[#E4E7EC] w-full">
                 <FormLabel className="font-semibold">Bank</FormLabel>
                 <FormControl>
-                  <ToggleGroup type="single" value={field.value} onValueChange={field.onChange} className="flex flex-col gap-4 w-full">
+                  <ToggleGroup type="single" value={field.value} onValueChange={field.onChange} className="col-span-3 flex flex-col gap-4 w-full">
                     <ToggleGroupItem value="flutterwave" className="w-full flex justify-between items-center border rounded-lg"><div className="flex justify-between items-center gap-3"><Image src="/assets/icons/flutterwave.svg" alt="flutterwave" width={30} height={30}/>Flutterwave</div> <Image src="/assets/icons/right.svg" alt="flutterwave" width={20} height={30}/></ToggleGroupItem>
                     <ToggleGroupItem value="paystack" className="w-full flex justify-between items-center border rounded-lg"><div className="flex justify-between items-center gap-3"><Image src="/assets/icons/paystack.svg" alt="paystack" width={30} height={30}/>Paystack</div> <Image src="/assets/icons/right.svg" alt="paystack" width={20} height={30}/></ToggleGroupItem>
                     <ToggleGroupItem value="quickteller" className="w-full flex justify-between items-center border rounded-lg"><div className="flex justify-between items-center gap-3"><Image src="/assets/icons/quickteller.svg" alt="quickteller" width={30} height={30}/>Quickteller</div> <Image src="/assets/icons/right.svg" alt="quickteller" width={20} height={30}/></ToggleGroupItem>

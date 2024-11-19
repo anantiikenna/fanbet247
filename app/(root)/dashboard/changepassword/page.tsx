@@ -1,4 +1,4 @@
-import ChangePasswordForm from '@/components/ChangePasswordForm'
+import ChangePasswordForm from '@/components/authsection/ChangePasswordForm'
 import React from 'react'
 
 const ChangePassword = () => {

@@ -1,5 +1,5 @@
 
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/dashboardsection/Breadcrumbs";
 import DashboardNav from "@/components/sections/DashboardNav";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";

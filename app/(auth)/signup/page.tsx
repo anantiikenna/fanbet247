@@ -1,4 +1,4 @@
-import SignupFormClient from "@/components/SignupFormClient";
+import SignupFormClient from "@/components/authsection/SignupFormClient";
 import Link from "next/link";
 
 const Signup = () => {

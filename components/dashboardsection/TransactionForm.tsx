@@ -2,30 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { DatePickerWithRange } from "./date-picker"; // Date Picker Component
+import { DatePickerWithRange } from "./date-picker"; 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-// Type definition for Transaction Type
-type TransactionType = 'credit' | 'debit';
-
-// Interface for the form data
-interface TransactionFormValues {
-  transactionType: TransactionType;
-  dateRange: { from: Date; to: Date };
-}
-
-// Interface for each transaction
-interface Transaction {
-  refId: string;
-  transactionDate: string;
-  type: TransactionType;
-  amount: string;
-  balance: string;
-  status: string;
-}
 
 const TransactionForm = () => {
   const form = useForm<TransactionFormValues>();

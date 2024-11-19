@@ -1,4 +1,4 @@
-import DepositForm from '@/components/DepositForm';
+import DepositForm from '@/components/dashboardsection/DepositForm';
 
 const Deposit = () => {
   return (
