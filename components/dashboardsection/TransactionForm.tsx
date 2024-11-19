@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
-
 const TransactionForm = () => {
   const form = useForm<TransactionFormValues>();
   const [transactions, setTransactions] = useState<Transaction[]>([]); // Array of transactions
@@ -81,27 +80,27 @@ const TransactionForm = () => {
       </Form>
 
       {/* Transaction Table */}
-      <div className="mt-8">
-        <Table className="">
-          <TableHeader className="w-full grid grid-cols-10 gap-4 text-xs text-s overflow-hidden overflow-x-scroll">
-            <TableRow className="w-full gap-4" >
-              <TableHead className="text-left col-span-2">Ref_ID</TableHead>
-              <TableHead className="text-left col-span-3">Date</TableHead>
-              <TableHead className="text-left col-span-1">Type</TableHead>
-              <TableHead className="text-left col-span-1">Amount</TableHead>
-              <TableHead className="text-left col-span-1">Balance</TableHead>
-              <TableHead className="text-left col-span-1">Status</TableHead>
+      <div className="mt-8 w-full overflow-x-scroll">
+        <Table>
+          <TableHeader className="sticky w-full">
+            <TableRow className=" w-full grid grid-cols-12 gap-4 text-xs overflow-x-visible ">
+              <TableHead className="grid items-center text-left col-span-2">Ref_Id</TableHead>
+              <TableHead className="grid items-center text-left col-span-2">Date</TableHead>
+              <TableHead className="grid items-center text-left col-span-2">Type</TableHead>
+              <TableHead className="grid items-center text-left col-span-2">Amount</TableHead>
+              <TableHead className="grid items-center text-left col-span-2">Balance</TableHead>
+              <TableHead className="grid items-center text-left col-span-2">Status</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody className=" w-full grid grid-cols-10 gap-4 text-xs text-s overflow-scroll">
+          <TableBody className=" w-full">
             {transactions.map((transaction, index) => (
-              <TableRow key={index} className="w-full">
-                <TableCell className="text-left col-span-2">{transaction.refId}</TableCell>
-                <TableCell className="text-left">{transaction.transactionDate}</TableCell>
-                <TableCell className=" ">{transaction.type}</TableCell>
-                <TableCell className=" text-right">{transaction.amount}</TableCell>
-                <TableCell className=" text-right">{transaction.balance}</TableCell>
-                <TableCell className=" ">{transaction.status}</TableCell>
+              <TableRow key={index} className=" w-full grid grid-cols-12 gap-4 overflow-x-visible ">
+                <TableCell className="grid items-center text-left col-span-2">{transaction.refId}</TableCell>
+                <TableCell className="grid items-center text-left col-span-2">{transaction.transactionDate}</TableCell>
+                <TableCell className="grid items-center col-span-2">{transaction.type}</TableCell>
+                <TableCell className="grid items-center text-right col-span-2">{transaction.amount}</TableCell>
+                <TableCell className="grid items-center text-right col-span-2">{transaction.balance}</TableCell>
+                <TableCell className="grid items-center col-span-2">{transaction.status}</TableCell>
               </TableRow>
             ))}
           </TableBody>
