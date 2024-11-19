@@ -103,25 +103,24 @@ const BetHistoryForm = () => {
       <div className="mt-8">
         <Table>
           <TableHeader>
-            <TableRow className="grid grid-cols-6 text-xs text-s overflow-auto">
-              <TableHead className="text-left">Ref_ID</TableHead>
-              <TableHead className="text-right">Fixture</TableHead>
-              <TableHead className="text-left">Bet Date</TableHead>
-              <TableHead>Type</TableHead>
-              <TableHead className="text-right">Stake</TableHead>
-              
-              <TableHead>Status</TableHead>
+            <TableRow className="w-full grid grid-cols-11 gap-4 text-xs text-s overflow-hidden overflow-x-scroll">
+              <TableHead className="text-left col-span-2">Ref_ID</TableHead>
+              <TableHead className="text-left col-span-3">Fixture</TableHead>
+              <TableHead className="text-left col-span-3 w-full flex ">Bet Date</TableHead>
+              <TableHead className="text-left col-span-1">Type</TableHead>
+              <TableHead className="text-left col-span-1">Stake</TableHead>             
+              <TableHead className="text-left col-span-1">Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {betHistory.map((bet, index) => (
-              <TableRow key={index} className="grid grid-cols-6 text-xs overflow-auto">
-                <TableCell className="text-left">{bet.refId}</TableCell>
-                <TableCell className="text-right">{bet.fixture}</TableCell>
-                <TableCell className="text-left">{bet.betDate}</TableCell>
-                <TableCell>{bet.betType}</TableCell>
-                <TableCell className="text-right">{bet.stake}</TableCell>
-                <TableCell>{bet.status}</TableCell>
+              <TableRow key={index} className="grid grid-cols-11 text-xs overflow-scroll">
+                <TableCell className="text-left col-span-2">{bet.refId}</TableCell>
+                <TableCell className="text-left col-span-3">{bet.fixture}</TableCell>
+                <TableCell className="text-left col-span-3">{bet.betDate}</TableCell>
+                <TableCell className="text-left col-span-1">{bet.betType}</TableCell>
+                <TableCell className="text-left col-span-1">{bet.stake}</TableCell>
+                <TableCell className="text-left col-span-1">{bet.status}</TableCell>
               </TableRow>
             ))}
           </TableBody>
