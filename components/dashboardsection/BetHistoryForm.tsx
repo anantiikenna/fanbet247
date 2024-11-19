@@ -101,23 +101,23 @@ const BetHistoryForm = () => {
 
       {/* Bet History Table */}
       <div className="mt-8">
-        <Table>
-          <TableHeader>
-            <TableRow className="w-full grid grid-cols-11 gap-4 text-xs text-s overflow-hidden overflow-x-scroll">
+        <Table className="w-full grid grid-cols-10 gap-4 text-xs overflow-hidden overflow-x-scroll">
+          <TableHeader className="w-full col-span-full">
+            <TableRow className="w-full col-span-10">
               <TableHead className="text-left col-span-2">Ref_ID</TableHead>
               <TableHead className="text-left col-span-3">Fixture</TableHead>
-              <TableHead className="text-left col-span-3 w-full flex ">Bet Date</TableHead>
+              <TableHead className="text-left col-span-2 flex ">Bet Date</TableHead>
               <TableHead className="text-left col-span-1">Type</TableHead>
               <TableHead className="text-left col-span-1">Stake</TableHead>             
               <TableHead className="text-left col-span-1">Status</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody className=" w-full grid grid-cols-10 gap-4 text-xs overflow-scroll">
             {betHistory.map((bet, index) => (
-              <TableRow key={index} className="grid grid-cols-11 text-xs overflow-scroll">
+              <TableRow key={index} className="w-full flex gap-4 col-span-full">
                 <TableCell className="text-left col-span-2">{bet.refId}</TableCell>
                 <TableCell className="text-left col-span-3">{bet.fixture}</TableCell>
-                <TableCell className="text-left col-span-3">{bet.betDate}</TableCell>
+                <TableCell className="text-left col-span-2">{bet.betDate}</TableCell>
                 <TableCell className="text-left col-span-1">{bet.betType}</TableCell>
                 <TableCell className="text-left col-span-1">{bet.stake}</TableCell>
                 <TableCell className="text-left col-span-1">{bet.status}</TableCell>

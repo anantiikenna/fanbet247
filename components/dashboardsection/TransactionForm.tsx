@@ -83,20 +83,20 @@ const TransactionForm = () => {
       {/* Transaction Table */}
       <div className="mt-8">
         <Table className="">
-          <TableHeader>
-            <TableRow className="grid grid-cols-6 text-xs text-s overflow-auto ">
-              <TableHead className="text-left">Ref_ID</TableHead>
-              <TableHead className="text-left">Date</TableHead>
-              <TableHead className=" ">Type</TableHead>
-              <TableHead className=" text-right">Amount</TableHead>
-              <TableHead className=" text-right">Balance</TableHead>
-              <TableHead className=" ">Status</TableHead>
+          <TableHeader className="w-full grid grid-cols-10 gap-4 text-xs text-s overflow-hidden overflow-x-scroll">
+            <TableRow className="w-full gap-4" >
+              <TableHead className="text-left col-span-2">Ref_ID</TableHead>
+              <TableHead className="text-left col-span-3">Date</TableHead>
+              <TableHead className="text-left col-span-1">Type</TableHead>
+              <TableHead className="text-left col-span-1">Amount</TableHead>
+              <TableHead className="text-left col-span-1">Balance</TableHead>
+              <TableHead className="text-left col-span-1">Status</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody className=" w-full grid grid-cols-10 gap-4 text-xs text-s overflow-scroll">
             {transactions.map((transaction, index) => (
-              <TableRow key={index} className="grid grid-cols-6 text-xs overflow-auto ">
-                <TableCell className="text-left">{transaction.refId}</TableCell>
+              <TableRow key={index} className="w-full">
+                <TableCell className="text-left col-span-2">{transaction.refId}</TableCell>
                 <TableCell className="text-left">{transaction.transactionDate}</TableCell>
                 <TableCell className=" ">{transaction.type}</TableCell>
                 <TableCell className=" text-right">{transaction.amount}</TableCell>
