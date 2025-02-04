@@ -61,8 +61,7 @@ export const profileFormSchema = z.object({
   }),
   gender: z.enum(["male", "female", "other"], { message: "Gender is required" }),
   country: z.string().min(1, { message: "Country is required" }),
-  profileImage: z
-    .object({
+  profileImage: z.object({
       name: z.string(),
       url: z.string().optional(),
       type: z.string().optional()

@@ -8,7 +8,6 @@ import { withdrawFormSchema } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-
 const WithdrawForm = () => {
   const form = useForm<WithdrawFormValues>({
     resolver: zodResolver(withdrawFormSchema),

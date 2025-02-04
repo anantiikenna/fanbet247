@@ -10,9 +10,6 @@ import { useState } from 'react';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
 
 
-
-
-
 const BetForm: React.FC<BetFormProps> = ({ fixtureId, homeTeam, awayTeam, odds }) => {
   if (!fixtureId) throw new Error('Fixture ID is required');
   const [stake, setStake] = useState<number>(1000);
