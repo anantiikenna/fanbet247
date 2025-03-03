@@ -13,7 +13,7 @@ const Home = async () => {
       
       <div className="flex flex-col gap-5 w-full px-4 md:px-10 py-5 xl:py-14 xl:px-28">
         <div className="flex flex-col gap-1">
-          <h1 className="text-3xl md:text-7xl text-[#05503E] font-bold md:mb-4">FanBet247</h1>
+          <h1 className="text-3xl md:text-7xl text-[#05503E] font-bold md:mb-4">BetZillion</h1>
           <h1 className="text-3xl md:text-7xl text-[#05503E] font-bold md:mb-4"> Amazing Features</h1>
         </div>
       
@@ -33,7 +33,7 @@ const Home = async () => {
         <div>
           <h1 className="text-3xl text-[#05503E] font-bold">Fan Blog</h1>
           <p className='text-lg text-[#05503E]'>
-            Dive into previews and post-match reactions for your favorite team. Stay updated with exclusive news, shows, and interviews from FanBet247. Share your opinions and interact with fellow fans
+            Dive into previews and post-match reactions for your favorite team. Stay updated with exclusive news, shows, and interviews from BetZillion. Share your opinions and interact with fellow fans
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="flex flex-col gap-4 w-full">
@@ -59,9 +59,9 @@ const Home = async () => {
           </div>
         </div>
         <div className="flex flex-col lg:flex lg:flex-row justify-between items-center mb-6">
-          <h2 className="text-4xl md:text-5xl lg:text-7xl  text-[#05503E] font-semibold mb-4 w-full">Partner with <br/> FanBet247</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl  text-[#05503E] font-semibold mb-4 w-full">Partner with <br/> BetZillion</h2>
           <div className="flex flex-col">                                                                                                                                                                                                                                                               
-            <h3 className="text-xl text-[#05503E] font-bold mb-6">Partner with FanBet247</h3>
+            <h3 className="text-xl text-[#05503E] font-bold mb-6">Partner with BetZillion</h3>
             <p className="text-lg text-[#05503E]">
               Are you an experienced sports betting agent, and would like to set up your own franchise? We are happy to get to know your offer. Partner with us and earn as your clients start playing!
             </p>

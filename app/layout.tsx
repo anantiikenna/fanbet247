@@ -16,7 +16,7 @@ const notoSansDisplay = Noto_Sans_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Fanbet247",
+  title: "BetZillion",
   description: "Bet 24hours 7 Days",
   icons: {
     icon: "/assets/icons/logo.svg",

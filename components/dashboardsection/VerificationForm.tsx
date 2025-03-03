@@ -118,7 +118,7 @@ const VerificationForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem className="md:grid md:grid-cols-4 justify-start gap-10 items-center w-full">
-                <FormLabel className="font-semibold text-sm col-span-1">Enter your Fanbet247 password</FormLabel>
+                <FormLabel className="font-semibold text-sm col-span-1">Enter your BetZillion password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="Enter your password" {...field} className="col-span-3" />
                 </FormControl>
